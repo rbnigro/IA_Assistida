@@ -2,6 +2,22 @@
 
 Este documento define os controles de seguranca do CRUD IA First e de suas capacidades opcionais de RAG, agentes e MCP.
 
+## Objetivo
+
+Proteger o CRUD, o contexto, as ferramentas e os dados contra abuso e falhas previsiveis.
+
+## Escopo
+
+WAF, gateway, autenticacao, autorizacao, rate limiting, camada IA, MCP, persistencia e auditoria.
+
+## Criterios
+
+Cada controle deve possuir politica, teste positivo, teste negativo e evidencia no harness. Falhas de autorizacao e escrita indevida bloqueiam a etapa.
+
+## Exemplos
+
+Uma requisicao sem identidade e rejeitada; uma ferramenta sem scope retorna negacao; uma tentativa de prompt injection nao executa escrita nem expoe segredo.
+
 ## Objetivos
 
 - manter o CRUD funcional sem IA;

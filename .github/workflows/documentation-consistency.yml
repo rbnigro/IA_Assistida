@@ -1,0 +1,94 @@
+name: Documentation consistency
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate required documents
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(
+            README.md
+            Projeto/CONSTITUTION.md
+            Projeto/AGENTS.md
+            Projeto/docs/methodology.md
+            Projeto/docs/architecture/security-architecture.md
+            Projeto/docs/architecture/memory-architecture.md
+            Projeto/docs/observability/observability-stack.md
+            Projeto/docs/integrator-deliverables.md
+            Projeto/docs/decisions/episodic_log.md
+            Projeto/docs/decisions/semantic_facts.md
+            Projeto/docs/decisions/ADR-001-crud-como-nucleo.md
+            Avaliacao/rubrics/stage-rubrics.md
+          )
+          for file in "${required[@]}"; do
+            test -s "$file" || { echo "Missing or empty: $file"; exit 1; }
+          done
+
+      - name: Validate fixed headings
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in README.md Projeto/docs/methodology.md Projeto/docs/architecture/security-architecture.md Avaliacao/rubrics/stage-rubrics.md Projeto/docs/observability/observability-stack.md; do
+            for heading in '## Objetivo' '## Escopo' '## Criterios' '## Exemplos'; do
+              grep -Fqx "$heading" "$file" || { echo "Missing '$heading' in $file"; exit 1; }
+            done
+          done
+
+      - name: Validate audit contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+            episodic = Path('Projeto/docs/decisions/episodic_log.md')
+            episodic_text = episodic.read_text(encoding='utf-8')
+            if 'actor_id' not in episodic_text:
+              raise SystemExit(f'Missing actor_id in {episodic}')
+
+            for path in [
+              Path('Projeto/docs/decisions/semantic_facts.md'),
+              Path('Projeto/docs/decisions/ADR-001-crud-como-nucleo.md'),
+            ]:
+              text = path.read_text(encoding='utf-8')
+              author = re.findall(r'^author_agent_id:\s*([^\s]+)$', text, re.MULTILINE)
+              reviewer = re.findall(r'^reviewer_agent_id:\s*([^\s]+)$', text, re.MULTILINE)
+              if not author or not reviewer:
+                raise SystemExit(f'Missing audit identity in {path}')
+              if len(author) != len(reviewer):
+                raise SystemExit(f'Audit identity count mismatch in {path}')
+              if any(a == r for a, r in zip(author, reviewer)):
+                raise SystemExit(f'Author and reviewer must differ in {path}')
+          PY
+
+      - name: Validate local links
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+
+          root = Path('.')
+          files = [path for path in root.rglob('*.md') if '.git' not in path.parts]
+          pattern = re.compile(r'\[[^\]]+\]\(([^)#]+)\)')
+          for source in files:
+              for target in pattern.findall(source.read_text(encoding='utf-8')):
+                  if target.startswith(('http://', 'https://', '#')):
+                      continue
+                  resolved = (source.parent / target).resolve()
+                  if not resolved.exists():
+                      raise SystemExit(f'Broken link: {source} -> {target}')
+          PY

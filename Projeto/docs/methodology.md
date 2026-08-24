@@ -16,6 +16,24 @@ O objetivo nao e apenas obter uma aplicacao funcionando. E produzir uma solucao 
 - economicamente controlada;
 - defendivel em uma entrevista tecnica.
 
+## Objetivo
+
+Conduzir cada etapa do CRUD IA First com escopo controlado, evidencia reproduzivel e comparacao justa entre trabalho com e sem IA.
+
+## Escopo
+
+O processo cobre requisitos, arquitetura, JDK 21, Angular 19, H2, testes, seguranca, observabilidade, RAG, agentes, MCP e avaliacao. A implementacao de cada capacidade depende da etapa correspondente.
+
+## Criterios
+
+Nenhuma etapa avanca sem atender os criterios da rubrica, passar pelo Code Review independente e registrar custo, latencia, falhas e aprendizado quando aplicavel.
+
+As rubricas detalhadas estao em [`stage-rubrics.md`](../../Avaliacao/rubrics/stage-rubrics.md). A stack minima de observabilidade esta em [`observability-stack.md`](observability/observability-stack.md). A pipeline `.github/workflows/documentation-consistency.yml` valida a presenca de documentos, headings fixos, contratos de auditoria e links locais sem consumir creditos de IA.
+
+## Exemplos
+
+O fluxo completo e demonstrado pelo baseline, pelo CRUD funcional e pelas etapas posteriores de IA.
+
 ## Separacao de responsabilidades
 
 | Camada | Responsabilidade | Artefatos principais |
@@ -160,7 +178,7 @@ O Code Reviewer verifica qualidade de implementacao, testes, contratos e manuten
 
 O harness da avaliacao executa cenarios controlados em `Avaliacao/`. Ele deve medir a solucao sem depender da declaracao do agente.
 
-Os entregaveis detalhados do projeto integrador estao em [`integrator-deliverables.md`](integrator-deliverables.md). A arquitetura de seguranca esta em [`architecture/security-architecture.md`](architecture/security-architecture.md) e o runbook correspondente em [`runbooks/security-incident.md`](runbooks/security-incident.md).
+Os entregaveis detalhados do projeto integrador estao em [`integrator-deliverables.md`](integrator-deliverables.md). A arquitetura de seguranca esta em [`architecture/security-architecture.md`](architecture/security-architecture.md), o runbook correspondente em [`runbooks/security-incident.md`](runbooks/security-incident.md), e a stack-alvo de observabilidade em [`observability/observability-stack.md`](observability/observability-stack.md).
 
 O harness deve:
 
@@ -337,12 +355,13 @@ Uma demanda esta pronta quando:
 - testes relevantes passaram;
 - Code Review independente foi concluido;
 - revisao de seguranca foi executada quando aplicavel;
-- harness foi executado;
+- harness ou validacao equivalente da etapa foi executado;
 - custo, latencia e falhas relevantes foram registrados;
 - documentacao e ADRs foram atualizados;
 - autoria e revisao estao rastreaveis;
 - nao existem segredos no repositorio;
 - a etapa foi publicada com tag quando for um marco do curso.
+- a pipeline de consistencia documental passou.
 
 ## Registro minimo por demanda
 

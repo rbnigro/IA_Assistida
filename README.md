@@ -7,10 +7,26 @@ O projeto tambem evolui para RAG, agentes autonomos, orquestracao multiagente e 
 O projeto foi organizado para simular uma pos-graduacao real:
 
 ```text
-aprender -> aplicar -> testar -> revisar -> avaliar -> registrar -> publicar
+Aprender -> Definir -> Projetar -> Implementar -> Testar -> Revisar -> Avaliar -> Registrar -> Publicar
 ```
 
 O resultado esperado nao e somente uma demo que responde perguntas. E um portfolio tecnico reproduzivel, com decisoes registradas, testes, metricas, seguranca, observabilidade e evidencias suficientes para uma entrevista tecnica.
+
+## Objetivo
+
+Construir um CRUD academico reproduzivel e evolui-lo com IA somente quando houver caso de uso, criterio de aceite e avaliacao.
+
+## Escopo
+
+O escopo inclui JDK 21, Angular 19, H2, API REST, testes, governanca, observabilidade, RAG, agentes e MCP em etapas progressivas. Nao inclui dependencia obrigatoria de provedor externo de IA para o CRUD basico.
+
+## Criterios
+
+Uma etapa exige funcionalidade executavel, testes, Code Review independente, evidencias, metricas e documentacao atualizada.
+
+## Exemplos
+
+As dez etapas, suas rubricas e os entregaveis estao no mapa de documentacao e nos arquivos vinculados abaixo.
 
 ## Como navegar
 
@@ -84,6 +100,11 @@ A documentacao foi dividida por responsabilidade para evitar um Markdown unico e
 | [Runbook de Incidente](Projeto/docs/runbooks/security-incident.md) | Contencao, diagnostico e recuperacao de falhas de seguranca |
 | [Entregaveis do Integrador](Projeto/docs/integrator-deliverables.md) | Relatorio tecnico, demo, metricas e criterios de aceite |
 | [Arquitetura de Memoria](Projeto/docs/architecture/memory-architecture.md) | Implementacao de memoria episodica, semantica e estado |
+| [Diario Episodico](Projeto/docs/decisions/episodic_log.md) | Eventos datados, evidencias e proximos passos |
+| [Fatos Semanticos](Projeto/docs/decisions/semantic_facts.md) | Fatos curtos, verificaveis e reutilizaveis |
+| [ADR-001](Projeto/docs/decisions/ADR-001-crud-como-nucleo.md) | Decisao de usar o CRUD como nucleo do projeto |
+| [Observabilidade](Projeto/docs/observability/observability-stack.md) | Stack minima, metricas, logs e traces |
+| [Rubrica de etapas](Avaliacao/rubrics/stage-rubrics.md) | Criterios objetivos e bloqueadores por etapa |
 | `Projeto/CONSTITUTION.md` | Principios e limites fundamentais do sistema |
 | `Projeto/AGENTS.md` | Regras operacionais para agentes no repositorio |
 
@@ -128,6 +149,11 @@ portfolio-ia/
         memory-architecture.md
         security-architecture.md
       decisions/
+        ADR-001-crud-como-nucleo.md
+        episodic_log.md
+        semantic_facts.md
+      observability/
+        observability-stack.md
       integrator-deliverables.md
       methodology.md
       runbooks/
@@ -138,6 +164,7 @@ portfolio-ia/
   Avaliacao/                  # estrutura planejada do ambiente de avaliacao
     scenarios/
     rubrics/
+      stage-rubrics.md
     evaluators/
       review_independence.py
     reports/
@@ -412,7 +439,6 @@ etapa-06-plan-and-execute
 etapa-07-mcp
 etapa-08-multiagente
 etapa-09-ia-first-final
-etapa-09-final
 ```
 
 Depois de aprovar uma etapa:
@@ -468,12 +494,13 @@ Uma demanda ou etapa esta concluida quando:
 - testes relevantes passaram;
 - Code Review independente foi concluido;
 - revisao de seguranca foi executada quando aplicavel;
-- harness foi executado;
+- harness ou validacao equivalente da etapa foi executado;
 - custo, latencia e falhas foram registrados;
 - documentacao foi atualizada;
 - autoria e revisao estao rastreaveis;
 - nao existem segredos no repositorio;
 - a etapa foi publicada com tag quando for um marco do curso.
+- a pipeline de consistencia documental passou.
 
 ## Primeiros passos
 
