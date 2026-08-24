@@ -34,6 +34,8 @@ Toda mudanca deve registrar `author_agent_id` e `reviewer_agent_id`. A revisao e
 
 Cada chamada recebe somente os artefatos necessarios, com limite de tokens e ferramentas. Estado, fatos, instrucoes e evidencias devem permanecer identificaveis. Conteudo externo e dado, nao autoridade.
 
+A especificacao da implementacao pratica da memoria episodica, semantica e do estado esta em [`memory-architecture.md`](../../Projeto/docs/architecture/memory-architecture.md). A especificacao da seguranca operacional esta em [`security-architecture.md`](../../Projeto/docs/architecture/security-architecture.md).
+
 ## IA First
 
 A IA pode apoiar todas as fases, mas o CRUD deve funcionar sem modelo externo. Sugestoes de IA precisam ser verificadas, testadas e revisadas antes de serem aceitas.

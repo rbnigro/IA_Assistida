@@ -80,6 +80,10 @@ A documentacao foi dividida por responsabilidade para evitar um Markdown unico e
 | [Arquitetura de Agentes e Artefatos](Curso/Docs/Arquitetura_Agentes_e_Artefatos.md) | Funcao de constituicao, agentes, prompts, memoria, MCP e harness |
 | [Arquitetura de Workspaces e Contextos](Curso/Docs/Arquitetura_de_Workspaces_e_Contextos.md) | Isolamento entre estudo, implementacao e avaliacao |
 | [Metodologia](Projeto/docs/methodology.md) | Processo completo de aprendizagem, desenvolvimento e avaliacao |
+| [Arquitetura de Seguranca](Projeto/docs/architecture/security-architecture.md) | WAF, autorizacao, rate limiting, prompt injection e auditoria |
+| [Runbook de Incidente](Projeto/docs/runbooks/security-incident.md) | Contencao, diagnostico e recuperacao de falhas de seguranca |
+| [Entregaveis do Integrador](Projeto/docs/integrator-deliverables.md) | Relatorio tecnico, demo, metricas e criterios de aceite |
+| [Arquitetura de Memoria](Projeto/docs/architecture/memory-architecture.md) | Implementacao de memoria episodica, semantica e estado |
 | `Projeto/CONSTITUTION.md` | Principios e limites fundamentais do sistema |
 | `Projeto/AGENTS.md` | Regras operacionais para agentes no repositorio |
 
@@ -98,7 +102,7 @@ portfolio-ia/
       exercicios/
       referencias/
 
-  Projeto/
+  Projeto/                    # estrutura planejada do ambiente de implementacao
     CONSTITUTION.md
     AGENTS.md
     agents/
@@ -121,13 +125,17 @@ portfolio-ia/
       ai-assistant/
     docs/
       architecture/
+        memory-architecture.md
+        security-architecture.md
       decisions/
+      integrator-deliverables.md
       methodology.md
       runbooks/
+        security-incident.md
     harness/
     tests/
 
-  Avaliacao/
+  Avaliacao/                  # estrutura planejada do ambiente de avaliacao
     scenarios/
     rubrics/
     evaluators/
@@ -481,4 +489,4 @@ Uma demanda ou etapa esta concluida quando:
 
 ## Estado atual
 
-O repositorio possui a estrutura inicial dos tres workspaces, os agentes especializados, os prompts operacionais, a metodologia e os arquivos de configuracao do VS Code. A implementacao do sistema integrador, dos avaliadores e dos servicos sera conduzida progressivamente conforme as etapas do curso.
+O repositorio possui a estrutura inicial dos tres workspaces, os agentes especializados, os prompts operacionais, a metodologia e os arquivos de configuracao do VS Code. Os diretorios de servicos, testes e avaliacao apresentados acima sao alvos da arquitetura e serao preenchidos progressivamente conforme as etapas do curso. Relatorios, demos, metricas e implementacoes de memoria, seguranca e IA somente devem ser considerados concluidos quando houver evidencia versionada e validacao reproduzivel.

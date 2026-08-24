@@ -160,6 +160,8 @@ O Code Reviewer verifica qualidade de implementacao, testes, contratos e manuten
 
 O harness da avaliacao executa cenarios controlados em `Avaliacao/`. Ele deve medir a solucao sem depender da declaracao do agente.
 
+Os entregaveis detalhados do projeto integrador estao em [`integrator-deliverables.md`](integrator-deliverables.md). A arquitetura de seguranca esta em [`architecture/security-architecture.md`](architecture/security-architecture.md) e o runbook correspondente em [`runbooks/security-incident.md`](runbooks/security-incident.md).
+
 O harness deve:
 
 - fornecer fixtures controladas;
@@ -212,6 +214,10 @@ Regras:
 - registrar versao dos prompts e modelo;
 - encerrar a tarefa quando a evidencia for suficiente;
 - impedir que texto recuperado ganhe autoridade sobre politicas do sistema.
+
+### Memoria implementada
+
+A memoria episodica registra eventos de uma tarefa por `task_id` e usuario. A memoria semantica registra fatos normalizados com fonte, confianca, namespace, versao e validade. O estado registra a etapa e as transicoes permitidas. A especificacao detalhada, o modelo H2 e os testes planejados estao em [`architecture/memory-architecture.md`](architecture/memory-architecture.md). A implementacao sera uma etapa posterior e nao deve ser tratada como concluida enquanto os testes nao existirem.
 
 ## Estado da tarefa
 
