@@ -76,7 +76,7 @@ A documentacao foi dividida por responsabilidade para evitar um Markdown unico e
 
 | Documento | O que ensina |
 | --- | --- |
-| [Plano do Portfolio](Curso/Docs/Plano_Portfolio_IA_Assistida.md) | Competencias, projetos, etapas e criterios de passagem |
+| [Plano do Portfolio](Curso/Docs/Plano_Portfolio.md) | Competencias, projetos, etapas e criterios de passagem |
 | [Arquitetura de Agentes e Artefatos](Curso/Docs/Arquitetura_Agentes_e_Artefatos.md) | Funcao de constituicao, agentes, prompts, memoria, MCP e harness |
 | [Arquitetura de Workspaces e Contextos](Curso/Docs/Arquitetura_de_Workspaces_e_Contextos.md) | Isolamento entre estudo, implementacao e avaliacao |
 | [Metodologia](Projeto/docs/methodology.md) | Processo completo de aprendizagem, desenvolvimento e avaliacao |
@@ -91,7 +91,7 @@ A constituicao e o manual operacional devem continuar separados da metodologia. 
 portfolio-ia/
   Curso/
     Docs/
-      Plano_Portfolio_IA_Assistida.md
+      Plano_Portfolio.md
       Arquitetura_Agentes_e_Artefatos.md
       Arquitetura_de_Workspaces_e_Contextos.md
       aulas/
@@ -417,6 +417,38 @@ git push origin main --tags
 ```
 
 Nao reescreva tags que ja foram publicadas. Qualquer pessoa podera baixar uma etapa pelo GitHub usando `Code > Download ZIP` ou a URL da tag.
+
+## Carga horaria e indicadores
+
+As horas abaixo sao uma estimativa pedagogica de esforco por etapa. Elas nao representam uma promessa de produtividade. A medicao oficial devera substituir as estimativas pelos tempos reais registrados no projeto.
+
+| Etapa | Entrega principal | Sem IA (h) | Com IA (h) | Ganho estimado (h) | Produtividade estimada | SpeedUp estimado |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| 00 | Baseline e requisitos | 8 | 6 | 2 | 25,0% | 1,33x |
+| 01 | CRUD backend JDK 21 | 32 | 22 | 10 | 31,3% | 1,45x |
+| 02 | CRUD frontend Angular 19 | 36 | 25 | 11 | 30,6% | 1,44x |
+| 03 | Persistencia H2 e testes | 24 | 16 | 8 | 33,3% | 1,50x |
+| 04 | RAG minimo | 40 | 28 | 12 | 30,0% | 1,43x |
+| 05 | Agente reativo | 32 | 22 | 10 | 31,3% | 1,45x |
+| 06 | Plan and Execute | 36 | 25 | 11 | 30,6% | 1,44x |
+| 07 | Integracao MCP | 44 | 31 | 13 | 29,5% | 1,42x |
+| 08 | Orquestracao multiagente | 48 | 34 | 14 | 29,2% | 1,41x |
+| 09 | Integracao IA First e entrega final | 56 | 40 | 16 | 28,6% | 1,40x |
+| **Total** | **Formacao completa** | **356** | **249** | **107** | **30,1%** | **1,43x** |
+
+### Definicao dos indicadores
+
+Para cada etapa, use:
+
+```text
+Ganho de horas = horas_sem_IA - horas_com_IA
+Produtividade (%) = ganho_de_horas / horas_sem_IA * 100
+SpeedUp = horas_sem_IA / horas_com_IA
+```
+
+“Com IA” inclui preparação do contexto, interação com os agentes, revisão humana, correções, testes e documentação. “Sem IA” representa o esforço estimado para realizar a mesma entrega manualmente, mantendo o mesmo escopo e os mesmos critérios de qualidade.
+
+Não compare etapas com escopos diferentes. Registre também retrabalho, falhas, custo dos modelos e tempo de espera para que um ganho de horas não esconda perda de qualidade.
 
 ## Definition of Done
 

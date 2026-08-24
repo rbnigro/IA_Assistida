@@ -269,6 +269,59 @@ Fluxo:
 
 Uma tag publicada representa uma etapa congelada e baixavel. Nao reescreva tags de etapas ja divulgadas.
 
+## Carga horaria e indicadores
+
+O acompanhamento deve separar o esforco necessario para a mesma entrega sem IA e com IA. A comparacao deve usar o mesmo escopo, os mesmos criterios de aceite e a mesma exigencia de qualidade.
+
+### Estimativa inicial por etapa
+
+| Etapa | Entrega | Sem IA (h) | Com IA (h) |
+| --- | --- | ---: | ---: |
+| 00 | Baseline e requisitos | 8 | 6 |
+| 01 | CRUD backend JDK 21 | 32 | 22 |
+| 02 | CRUD frontend Angular 19 | 36 | 25 |
+| 03 | Persistencia H2 e testes | 24 | 16 |
+| 04 | RAG minimo | 40 | 28 |
+| 05 | Agente reativo | 32 | 22 |
+| 06 | Plan and Execute | 36 | 25 |
+| 07 | Integracao MCP | 44 | 31 |
+| 08 | Orquestracao multiagente | 48 | 34 |
+| 09 | Integracao IA First e entrega final | 56 | 40 |
+| **Total** | **Formacao completa** | **356** | **249** |
+
+Esses valores sao um baseline pedagogico, nao uma garantia. Eles devem ser substituidos pelos tempos observados durante a execucao.
+
+### Formula dos indicadores
+
+```text
+Ganho de horas = horas_sem_IA - horas_com_IA
+Produtividade (%) = ganho_de_horas / horas_sem_IA * 100
+SpeedUp = horas_sem_IA / horas_com_IA
+```
+
+Com a estimativa inicial, o ganho total e de 107 horas, a produtividade estimada e de 30,1% e o SpeedUp estimado e de 1,43x. Esses numeros somente sao validos para o escopo definido nesta metodologia.
+
+### O que entra em cada medicao
+
+O tempo com IA inclui configurar contexto, interagir com agentes, verificar saidas, corrigir codigo, executar testes, realizar Code Review, documentar e repetir a avaliacao quando necessario. O tempo sem IA deve considerar a mesma qualidade final, incluindo testes e documentacao.
+
+Registre por etapa:
+
+```text
+stage_id
+scope
+hours_without_ai
+hours_with_ai
+rework_hours
+review_hours
+test_hours
+ai_wait_time
+model_cost
+quality_result
+```
+
+Nao contabilize uma geracao automatica como entrega concluida. Se o uso de IA aumentar retrabalho ou reduzir qualidade, isso deve aparecer nos indicadores. O comparativo deve ser feito por etapa e no total acumulado.
+
 ## Definicao de pronto
 
 Uma demanda esta pronta quando:
