@@ -1,4 +1,4 @@
-# UniPDS - Pos-Graduacao Pratica em Engenharia de IA
+# Pos-Graduacao Pratica em Engenharia de IA
 
 Este repositorio representa uma formacao pratica em Engenharia de IA aplicada. O objetivo e aprender a projetar, implementar, integrar, proteger, avaliar e explicar sistemas baseados em RAG, agentes autonomos, orquestracao multiagente e MCP.
 
