@@ -1,6 +1,8 @@
-# Pos-Graduacao Pratica em Engenharia de IA
+# Portfolio Academico de Engenharia de IA First
 
-Este repositorio representa uma formacao pratica em Engenharia de IA aplicada. O objetivo e aprender a projetar, implementar, integrar, proteger, avaliar e explicar sistemas baseados em RAG, agentes autonomos, orquestracao multiagente e MCP.
+Este repositorio representa uma formacao pratica e independente em Engenharia de IA aplicada. O produto central e um CRUD full-stack construido com JDK 21, Angular 19 e banco H2. A abordagem IA First usa inteligencia artificial ao longo do ciclo de engenharia, sem substituir requisitos, testes, revisao humana ou responsabilidade tecnica.
+
+O projeto tambem evolui para RAG, agentes autonomos, orquestracao multiagente e MCP quando essas capacidades resolverem um problema real do CRUD.
 
 O projeto foi organizado para simular uma pos-graduacao real:
 
@@ -12,10 +14,10 @@ O resultado esperado nao e somente uma demo que responde perguntas. E um portfol
 
 ## Como navegar
 
-Este repositorio possui tres workspaces do VS Code, mas somente um repositorio Git:
+Este repositorio possui tres workspaces do VS Code, mas somente um repositorio Git. O conteudo publico foi organizado de forma neutra, sem referencias a instituicoes, cursos comerciais ou materiais de origem.
 
 ```text
-C:\UNIPDS\
+portfolio-ia/
   Curso\
   Projeto\
   Avaliacao\
@@ -35,7 +37,21 @@ Os arquivos `.code-workspace` sao configuracoes do VS Code. Eles nao sao reposit
 
 ## Objetivo do projeto
 
+### Baseline tecnico obrigatorio
+
+- backend em JDK 21;
+- frontend em Angular 19;
+- persistencia em H2;
+- API REST documentada;
+- testes automatizados;
+- arquitetura preparada para evoluir sem acoplar IA ao dominio central.
+
 Ao concluir a formacao, o sistema integrador devera:
+
+- implementar um CRUD completo com validacao, persistencia e tratamento de erros;
+- oferecer uma interface Angular responsiva e acessivel;
+- manter contratos consistentes entre frontend, backend e banco;
+- usar IA First para apoiar analise, implementacao, testes, documentacao e operacao;
 
 - responder perguntas usando uma base de conhecimento com RAG;
 - citar as fontes utilizadas e recusar respostas sem evidencia suficiente;
@@ -52,13 +68,15 @@ Ao concluir a formacao, o sistema integrador devera:
 - ser avaliado por um harness reproduzivel;
 - ser revisado por um Code Reviewer diferente do agente que codificou.
 
+O sistema deve continuar funcional como CRUD quando qualquer servico de IA estiver indisponivel. IA First significa aplicar IA ao ciclo de engenharia e ao produto com limites explicitos, nao criar uma dependencia invisivel do modelo.
+
 ## Mapa da documentacao
 
 A documentacao foi dividida por responsabilidade para evitar um Markdown unico e excessivo.
 
 | Documento | O que ensina |
 | --- | --- |
-| [Plano do Portfolio](Curso/Docs/Plano_Portfolio_UniPDS.md) | Competencias, projetos, etapas e criterios de passagem |
+| [Plano do Portfolio](Curso/Docs/Plano_Portfolio_IA_Assistida.md) | Competencias, projetos, etapas e criterios de passagem |
 | [Arquitetura de Agentes e Artefatos](Curso/Docs/Arquitetura_Agentes_e_Artefatos.md) | Funcao de constituicao, agentes, prompts, memoria, MCP e harness |
 | [Arquitetura de Workspaces e Contextos](Curso/Docs/Arquitetura_de_Workspaces_e_Contextos.md) | Isolamento entre estudo, implementacao e avaliacao |
 | [Metodologia](Projeto/docs/methodology.md) | Processo completo de aprendizagem, desenvolvimento e avaliacao |
@@ -70,17 +88,15 @@ A constituicao e o manual operacional devem continuar separados da metodologia. 
 ## Estrutura do repositorio
 
 ```text
-UNIPDS/
+portfolio-ia/
   Curso/
     Docs/
-      Plano_Portfolio_UniPDS.md
+      Plano_Portfolio_IA_Assistida.md
       Arquitetura_Agentes_e_Artefatos.md
       Arquitetura_de_Workspaces_e_Contextos.md
       aulas/
       exercicios/
       referencias/
-      UniPDS.txt
-      UniPDS.m4a
 
   Projeto/
     CONSTITUTION.md
@@ -102,6 +118,7 @@ UNIPDS/
       incident-report.md
     services/
       mcp-legacy/
+      ai-assistant/
     docs/
       architecture/
       decisions/
@@ -223,6 +240,18 @@ A camada MCP deve:
 - registrar auditoria.
 
 O modelo solicita uma ferramenta. O servidor MCP decide se a operacao e permitida e como sera traduzida para o legado.
+
+## Stack da aplicacao
+
+```text
+Angular 19 -> API REST em JDK 21 -> dominio/aplicacao -> repositorios -> H2
+                                      |
+                                      +-> camada de IA First, quando aplicavel
+```
+
+O backend deve separar dominio, aplicacao, infraestrutura e entrada HTTP. O frontend deve separar componentes, servicos, modelos e apresentacao. H2 sera o banco inicial, com uma abstracao de persistencia que permita evolucao futura.
+
+As capacidades de RAG, agentes e MCP entram por etapas e precisam de um caso de uso, criterio de aceite e avaliacao. O CRUD basico nao deve depender delas para criar, consultar, atualizar ou remover registros.
 
 ## Contexto e memoria
 
@@ -351,20 +380,30 @@ Avaliacao deve ser bloqueada se os identificadores forem iguais ou estiverem aus
 - branches, tags e Releases;
 - documentacao reproduzivel.
 
+### Desenvolvimento full-stack
+
+- JDK 21 e recursos modernos da plataforma Java;
+- API REST, DTOs, validacao e tratamento global de erros;
+- Angular 19, componentes, formularios, servicos e acessibilidade;
+- H2, schema, transacoes e testes de persistencia;
+- testes unitarios, integracao, contrato e ponta a ponta;
+- uso verificavel de IA para acelerar engenharia sem remover revisao humana.
+
 ## Etapas publicaveis
 
 As branches servem para desenvolver. As tags representam estados oficiais, congelados e baixaveis:
 
 ```text
 etapa-00-baseline
-etapa-01-rag-minimo
-etapa-02-rag-avaliado
-etapa-03-agente-reativo
-etapa-04-plan-and-execute
-etapa-05-mcp
-etapa-06-multiagente
-etapa-07-producao
-etapa-08-microsite
+etapa-01-crud-backend
+etapa-02-crud-angular
+etapa-03-crud-h2-testado
+etapa-04-rag-minimo
+etapa-05-agente-reativo
+etapa-06-plan-and-execute
+etapa-07-mcp
+etapa-08-multiagente
+etapa-09-ia-first-final
 etapa-09-final
 ```
 
@@ -373,7 +412,7 @@ Depois de aprovar uma etapa:
 ```powershell
 git switch main
 git merge --no-ff feature/nome-da-etapa
-git tag -a etapa-01-rag-minimo -m "Etapa 01 - RAG minimo"
+git tag -a etapa-01-crud-backend -m "Etapa 01 - CRUD backend"
 git push origin main --tags
 ```
 

@@ -53,6 +53,12 @@ Antes do primeiro codigo, defina:
 - riscos conhecidos;
 - orcamento inicial de tokens e chamadas.
 
+### Baseline tecnico
+
+O primeiro produto e um CRUD full-stack com backend em JDK 21, frontend em Angular 19 e banco H2. Antes de adicionar RAG, agentes ou MCP, o CRUD deve possuir contratos REST, validacao, tratamento de erros, persistencia e testes.
+
+IA First deve ser aplicada desde o inicio para apoiar levantamento, arquitetura, implementacao, testes e documentacao. Toda sugestao gerada por IA precisa ser verificavel e passar pelo fluxo normal de revisao.
+
 ### Saida obrigatoria
 
 Crie um requisito curto, uma definicao de pronto, um mapa de riscos e um cenario feliz. Registre tambem o estado inicial do repositorio em uma tag, por exemplo `etapa-00-baseline`.
@@ -189,7 +195,7 @@ context_package:
   allowed_artifacts:
     - requirements/REQ-001.md
     - docs/architecture/components.md
-    - tests/contracts/test_tickets.py
+    - tests/contracts/test_crud_contract.java
   excluded_artifacts:
     - Avaliacao/rubrics/private-cases.yaml
     - Curso/referencias/solution-key.md
@@ -226,7 +232,7 @@ pending_steps:
   - code-review
   - harness-evaluation
 artifacts_changed:
-  - services/mcp-legacy/tools/search_tickets.py
+  - services/mcp-legacy/tools/search_tickets.java
 ```
 
 O estado deve ser pequeno, versionado e suficiente para retomar a tarefa sem reenviar toda a conversa.
@@ -239,15 +245,15 @@ Use branches para desenvolvimento temporario e tags para publicar estados oficia
 main
   |
   +-- etapa-00-baseline
-  +-- etapa-01-rag-minimo
-  +-- etapa-02-rag-avaliado
-  +-- etapa-03-agente-reativo
-  +-- etapa-04-plan-and-execute
-  +-- etapa-05-mcp
-  +-- etapa-06-multiagente
-  +-- etapa-07-producao
-  +-- etapa-08-microsite
-  +-- etapa-09-final
+  +-- etapa-01-crud-backend
+  +-- etapa-02-crud-angular
+  +-- etapa-03-crud-h2-testado
+  +-- etapa-04-rag-minimo
+  +-- etapa-05-agente-reativo
+  +-- etapa-06-plan-and-execute
+  +-- etapa-07-mcp
+  +-- etapa-08-multiagente
+  +-- etapa-09-ia-first-final
 ```
 
 Fluxo:
