@@ -53,24 +53,24 @@ jobs:
           from pathlib import Path
           import re
 
-            episodic = Path('Projeto/docs/decisions/episodic_log.md')
-            episodic_text = episodic.read_text(encoding='utf-8')
-            if 'actor_id' not in episodic_text:
-              raise SystemExit(f'Missing actor_id in {episodic}')
+          episodic = Path('Projeto/docs/decisions/episodic_log.md')
+          episodic_text = episodic.read_text(encoding='utf-8')
+          if 'actor_id' not in episodic_text:
+            raise SystemExit(f'Missing actor_id in {episodic}')
 
-            for path in [
-              Path('Projeto/docs/decisions/semantic_facts.md'),
-              Path('Projeto/docs/decisions/ADR-001-crud-como-nucleo.md'),
-            ]:
-              text = path.read_text(encoding='utf-8')
-              author = re.findall(r'^author_agent_id:\s*([^\s]+)$', text, re.MULTILINE)
-              reviewer = re.findall(r'^reviewer_agent_id:\s*([^\s]+)$', text, re.MULTILINE)
-              if not author or not reviewer:
-                raise SystemExit(f'Missing audit identity in {path}')
-              if len(author) != len(reviewer):
-                raise SystemExit(f'Audit identity count mismatch in {path}')
-              if any(a == r for a, r in zip(author, reviewer)):
-                raise SystemExit(f'Author and reviewer must differ in {path}')
+          for path in [
+            Path('Projeto/docs/decisions/semantic_facts.md'),
+            Path('Projeto/docs/decisions/ADR-001-crud-como-nucleo.md'),
+          ]:
+            text = path.read_text(encoding='utf-8')
+            author = re.findall(r'^author_agent_id:\s*([^\s]+)$', text, re.MULTILINE)
+            reviewer = re.findall(r'^reviewer_agent_id:\s*([^\s]+)$', text, re.MULTILINE)
+            if not author or not reviewer:
+              raise SystemExit(f'Missing audit identity in {path}')
+            if len(author) != len(reviewer):
+              raise SystemExit(f'Audit identity count mismatch in {path}')
+            if any(a == r for a, r in zip(author, reviewer)):
+              raise SystemExit(f'Author and reviewer must differ in {path}')
           PY
 
       - name: Validate local links
