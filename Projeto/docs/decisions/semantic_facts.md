@@ -24,7 +24,7 @@ last_verified_by: project-owner
 
 ```yaml
 fact_id: SF-001
-statement: O backend usa JDK 21, o frontend usa Angular 19 e o banco inicial e H2.
+statement: O backend usa JDK 21 (sem Lombok), o frontend usa Angular 19 e o banco inicial e MySQL.
 source: Projeto/CONSTITUTION.md
 source_detail: Principios 1 e Limites tecnicos
 status: verified_documentation

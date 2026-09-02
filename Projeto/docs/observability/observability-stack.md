@@ -25,7 +25,7 @@ Metricas minimas: `http_server_requests_total`, `http_server_request_duration_se
 | Exposicao | endpoint `/actuator/prometheus` | disponibilizar metricas |
 | Coleta | Prometheus | armazenar e consultar series temporais |
 | Dashboards | Grafana | visualizar p50, p95, erros e custo |
-| Traces | OpenTelemetry | seguir uma tarefa entre API, agente, MCP e H2 |
+| Traces | OpenTelemetry | seguir uma tarefa entre API, agente, MCP e MySQL |
 | Armazenamento local | Docker Compose | reproduzir Prometheus e Grafana |
 
 A aplicacao deve continuar executando se Prometheus, Grafana ou o coletor de traces estiverem indisponiveis. Observabilidade nao pode derrubar o CRUD.

@@ -2,7 +2,7 @@
 
 Este documento define uma implementacao pratica para memoria episodica e semantica no projeto IA First. Memoria e uma capacidade opcional do produto e nao pode ser requisito para o CRUD basico.
 
-Os registros Markdown iniciais estao em [`episodic_log.md`](../decisions/episodic_log.md) e [`semantic_facts.md`](../decisions/semantic_facts.md). Eles sao memoria documental e auditavel; a persistencia H2 descrita neste documento sera implementada posteriormente.
+Os registros Markdown iniciais estao em [`episodic_log.md`](../decisions/episodic_log.md) e [`semantic_facts.md`](../decisions/semantic_facts.md). Eles sao memoria documental e auditavel; a persistencia MySQL descrita neste documento sera implementada posteriormente.
 
 ## Diferenca entre as memorias
 
@@ -43,7 +43,7 @@ Campos obrigatorios:
 
 ## Persistencia sugerida
 
-Para o primeiro incremento, use H2 com tabelas separadas e escopo explicito:
+Para o primeiro incremento, use MySQL com tabelas separadas e escopo explicito:
 
 ```text
 conversation_events

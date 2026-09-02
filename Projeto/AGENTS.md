@@ -2,7 +2,7 @@
 
 ## 🎯 Contexto do Projeto
 Este repositório integra a formação prática **IA First**, cujo objetivo é aplicar Inteligência Artificial para ampliar a capacidade de engenharia sem substituir responsabilidade técnica, testes ou revisão humana.  
-O produto central é um **CRUD full‑stack** com backend em **JDK 21**, frontend em **Angular 19** e banco **H2**.
+O produto central é um **CRUD full‑stack** com backend em **JDK 21 (sem Lombok)**, frontend em **Angular 19** e banco **MySQL**.
 
 ---
 
@@ -37,14 +37,14 @@ O produto central é um **CRUD full‑stack** com backend em **JDK 21**, front
 
 ### Developer
 - **Responsabilidades detalhadas:** Implementar requisitos em JDK 21/Angular 19, manter CRUD funcional.  
-- **Limites claros:** Não aprovar código próprio; não alterar arquitetura sem ADR.  
+- **Limites claros:** Não aprovar código próprio; não alterar arquitetura sem ADR; é terminantemente proibido o uso de Lombok no ecossistema Java (Getters, Setters e Construtores devem ser nativos e explícitos).  
 - **Entregáveis esperados:** Código compilável, testes unitários e integração, documentação de alterações.  
 - **Critérios de auditoria:** Cada commit deve referenciar requisito; cada alteração deve ter evidência de teste.  
-- **Exemplo prático:** Implementar novo endpoint CRUD e registrar teste de persistência H2.
+- **Exemplo prático:** Implementar novo endpoint CRUD e registrar teste de persistência MySQL.
 
 ### Code Reviewer
 - **Responsabilidades detalhadas:** Validar código, padrões e critérios de aceite.  
-- **Limites claros:** Não revisar código próprio (`author_agent_id == reviewer_agent_id` bloqueia).  
+- **Limites claros:** Não revisar código próprio (`author_agent_id == reviewer_agent_id` bloqueia); deve reprovar qualquer pull request que faça uso da biblioteca Lombok no backend.  
 - **Entregáveis esperados:** Parecer técnico registrado, comentários resolvidos.  
 - **Critérios de auditoria:** Cada revisão deve anexar evidência; cada aprovação deve ter justificativa.  
 - **Exemplo prático:** Revisar pull request e registrar parecer com evidência de testes.
@@ -84,7 +84,7 @@ O produto central é um **CRUD full‑stack** com backend em **JDK 21**, front
 2. Definir ou atualizar contrato técnico.  
 3. Projetar a mudança.  
 4. Implementar em JDK 21 e Angular 19 conforme aplicável.  
-5. Executar testes de backend, frontend e persistência H2.  
+5. Executar testes de backend, frontend e persistência MySQL.  
 6. Registrar metadados de auditoria:  
    - `author_agent_id`  
    - `reviewer_agent_id`  

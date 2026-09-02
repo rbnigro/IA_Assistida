@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Produzir uma arquitetura implementavel em JDK 21, Angular 19 e H2, preparada para capacidades IA First sem criar dependencia desnecessaria.
+Produzir uma arquitetura implementavel em JDK 21 (sem Lombok), Angular 19 e MySQL, preparada para capacidades IA First sem criar dependencia desnecessaria.
 
 ## Instrucoes
 

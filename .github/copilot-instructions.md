@@ -1,6 +1,6 @@
 ## Contexto
 
-Este repositorio e um projeto academico IA First. O produto central e um CRUD full-stack com JDK 21, Angular 19 e H2.
+Este repositorio e um projeto academico IA First. O produto central e um CRUD full-stack com JDK 21 (sem Lombok), Angular 19 e MySQL.
 
 ## Regras
 
@@ -15,4 +15,4 @@ Este repositorio e um projeto academico IA First. O produto central e um CRUD fu
 
 ## Validacao
 
-Antes de concluir uma tarefa, confirme compilacao, testes relevantes, contrato da API, persistencia H2, revisao independente e ausencia de segredos. Quando houver IA, registre contexto, tokens, custo, latencia e falhas.
+Antes de concluir uma tarefa, confirme compilacao, testes relevantes, contrato da API, persistencia MySQL, revisao independente e ausencia de segredos. Quando houver IA, registre contexto, tokens, custo, latencia e falhas.

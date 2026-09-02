@@ -1,12 +1,12 @@
 # Entregaveis do Projeto Integrador
 
-O projeto integrador sera um CRUD full-stack com JDK 21, Angular 19 e H2, evoluido progressivamente com capacidades IA First. Cada entrega devera ser executavel, avaliada e documentada.
+O projeto integrador sera um CRUD full-stack com JDK 21 (sem Lombok), Angular 19 e MySQL, evoluido progressivamente com capacidades IA First. Cada entrega devera ser executavel, avaliada e documentada.
 
 ## Produto funcional
 
 - API REST com criar, consultar, atualizar e remover;
 - validacao de entrada e erros padronizados;
-- persistencia H2 e transacoes;
+- persistencia MySQL e transacoes;
 - interface Angular 19 responsiva e acessivel;
 - instrucoes de execucao local;
 - comportamento funcional sem servico de IA.
@@ -18,7 +18,7 @@ O projeto integrador sera um CRUD full-stack com JDK 21, Angular 19 e H2, evolui
 | Relatorio tecnico | problema, arquitetura, decisoes, limites e riscos | `docs/architecture/` e ADR |
 | API | endpoints, DTOs, erros e contrato versionado | testes de contrato |
 | Frontend | telas, estados de carregamento/erro e acessibilidade | teste de fluxo |
-| Persistencia | entidades, schema, transacoes e inicializacao H2 | testes de integracao |
+| Persistencia | entidades, schema, transacoes e inicializacao MySQL | testes de integracao |
 | IA First | tarefas apoiadas por IA, contexto, limites e validacao humana | registro de execucao |
 | RAG | ingestao, busca, fontes e abstencao, se habilitado | dataset e metricas |
 | Agentes | papeis, estado, ferramentas e limites, se habilitado | traces e cenarios |
@@ -73,7 +73,7 @@ Nao declare ganho se a entrega com IA tiver escopo menor, qualidade inferior ou 
 
 A demonstracao deve seguir este roteiro:
 
-1. iniciar H2, backend e frontend;
+1. iniciar MySQL, backend e frontend;
 2. criar um registro;
 3. consultar o registro;
 4. atualizar o registro;

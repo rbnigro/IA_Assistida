@@ -1,4 +1,4 @@
- # Arquitetura de Workspaces e Contextos
+# Arquitetura de Workspaces e Contextos
 
 ## Tres ambientes
 
@@ -8,15 +8,19 @@ Projeto    -> implementar e documentar
 Avaliacao  -> testar e medir independentemente
 ```
 
-Os tres sao pastas abertas por arquivos `.code-workspace` diferentes, mas fazem parte de um unico repositorio Git.
+Os tres sao pastas que fazem parte de um unico repositorio Git (UNIPDS), centralizados na mesma tela para governança do Harness.
 
 ## Workspace Curso
 
 Contem aulas, referencias, exercicios e requisitos liberados. O agente tutor pode consultar o material didatico. O agente de codificacao nao deve receber automaticamente respostas, solucoes ou material futuro.
 
+## Espaço de Desenvolvimento (Multi-Repo)
+
+Localizado na pasta `/Codigo` na raiz do projeto. O CRUD em JDK 21 (sem Lombok), Angular 19 e MySQL é desenvolvido aqui de forma isolada, contendo os repositórios `academic-crud-backend` e `academic-crud-frontend`.
+
 ## Workspace Projeto
 
-Contem codigo, agentes, prompts, servicos, testes e documentacao tecnica. O CRUD em JDK 21, Angular 19 e H2 e desenvolvido aqui.
+Contem a inteligência do sistema: agentes, prompts, especificações de serviços, testes arquiteturais e documentação tecnica. Ele orquestra e analisa o código gerado em `/Codigo`.
 
 ## Workspace Avaliacao
 
@@ -33,6 +37,8 @@ workspace: Projeto
 allowed:
 	- requirements/REQ-001.md
 	- docs/architecture/components.md
+	- Codigo/academic-crud-backend/
+	- Codigo/academic-crud-frontend/
 excluded:
 	- Curso/referencias/solution-key.md
 	- Avaliacao/rubrics/private-cases.yaml
@@ -48,3 +54,6 @@ aprender -> receber desafio -> implementar -> testar -> revisar -> avaliar -> co
 ```
 
 Essa separacao simula a pos-graduacao: aprender, aplicar e ser avaliado sao atividades distintas.
+
+### Documentos de Contexto Técnico
+- [[Decisao_Tecnologica.md]]: Define a stack de execução (Java 21, Angular 19, MySQL) e a estratégia Multi-Repo do projeto.

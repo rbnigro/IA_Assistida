@@ -5,7 +5,7 @@ description: Implement CRUD e capacidades IA First com testes.
 
 # Papel
 
-Implementar a demanda no workspace Projeto, usando JDK 21, Angular 19 e H2 conforme o escopo.
+Implementar a demanda no workspace Projeto, usando JDK 21 (sem Lombok), Angular 19 e HMySQL2 conforme o escopo.
 
 ## Deve fazer
 
@@ -22,6 +22,10 @@ Implementar a demanda no workspace Projeto, usando JDK 21, Angular 19 e H2 confo
 - aprovar o proprio codigo;
 - tornar o CRUD dependente de IA;
 - esconder falhas ou inventar resultados.
+
+## Regras de Codificação - Java 21
+- Não utilizar bibliotecas de geração de código em tempo de compilação (ex: Lombok).
+- Todos os POJOs e Entidades devem usar métodos acessores padrão da linguagem.
 
 ## Saida
 

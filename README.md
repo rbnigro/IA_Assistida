@@ -1,6 +1,6 @@
 # Portfolio Academico de Engenharia de IA First
 
-Este repositorio representa uma formacao pratica e independente em Engenharia de IA aplicada. O produto central e um CRUD full-stack construido com JDK 21, Angular 19 e banco H2. A abordagem IA First usa inteligencia artificial ao longo do ciclo de engenharia, sem substituir requisitos, testes, revisao humana ou responsabilidade tecnica.
+Este repositorio representa uma formacao pratica e independente em Engenharia de IA aplicada. O produto central e um CRUD full-stack construido com JDK 21 (sem Lombok), Angular 19 e banco MySQL. A abordagem IA First usa inteligencia artificial ao longo do ciclo de engenharia, sem substituir requisitos, testes, revisao humana ou responsabilidade tecnica.
 
 O projeto tambem evolui para RAG, agentes autonomos, orquestracao multiagente e MCP quando essas capacidades resolverem um problema real do CRUD.
 
@@ -18,7 +18,7 @@ Construir um CRUD academico reproduzivel e evolui-lo com IA somente quando houve
 
 ## Escopo
 
-O escopo inclui JDK 21, Angular 19, H2, API REST, testes, governanca, observabilidade, RAG, agentes e MCP em etapas progressivas. Nao inclui dependencia obrigatoria de provedor externo de IA para o CRUD basico.
+O escopo inclui JDK 21 (sem Lombok), Angular 19, MySQL, API REST, testes, governanca, observabilidade, RAG, agentes e MCP em etapas progressivas. Nao inclui dependencia obrigatoria de provedor externo de IA para o CRUD basico.
 
 ## Criterios
 
@@ -55,9 +55,9 @@ Os arquivos `.code-workspace` sao configuracoes do VS Code. Eles nao sao reposit
 
 ### Baseline tecnico obrigatorio
 
-- backend em JDK 21;
+- backend em JDK 21 (sem Lombok);
 - frontend em Angular 19;
-- persistencia em H2;
+- persistencia em MySQL;
 - API REST documentada;
 - testes automatizados;
 - arquitetura preparada para evoluir sem acoplar IA ao dominio central.
@@ -279,12 +279,12 @@ O modelo solicita uma ferramenta. O servidor MCP decide se a operacao e permitid
 ## Stack da aplicacao
 
 ```text
-Angular 19 -> API REST em JDK 21 -> dominio/aplicacao -> repositorios -> H2
+Angular 19 -> API REST em JDK 21 (sem Lombok) -> dominio/aplicacao -> repositorios -> MySQL
                                       |
                                       +-> camada de IA First, quando aplicavel
 ```
 
-O backend deve separar dominio, aplicacao, infraestrutura e entrada HTTP. O frontend deve separar componentes, servicos, modelos e apresentacao. H2 sera o banco inicial, com uma abstracao de persistencia que permita evolucao futura.
+O backend deve separar dominio, aplicacao, infraestrutura e entrada HTTP. O frontend deve separar componentes, servicos, modelos e apresentacao. MySQL sera o banco inicial, com uma abstracao de persistencia que permita evolucao futura.
 
 As capacidades de RAG, agentes e MCP entram por etapas e precisam de um caso de uso, criterio de aceite e avaliacao. O CRUD basico nao deve depender delas para criar, consultar, atualizar ou remover registros.
 
@@ -417,10 +417,10 @@ Avaliacao deve ser bloqueada se os identificadores forem iguais ou estiverem aus
 
 ### Desenvolvimento full-stack
 
-- JDK 21 e recursos modernos da plataforma Java;
+- JDK 21 (sem Lombok) e recursos modernos da plataforma Java;
 - API REST, DTOs, validacao e tratamento global de erros;
 - Angular 19, componentes, formularios, servicos e acessibilidade;
-- H2, schema, transacoes e testes de persistencia;
+- MySQL, schema, transacoes e testes de persistencia;
 - testes unitarios, integracao, contrato e ponta a ponta;
 - uso verificavel de IA para acelerar engenharia sem remover revisao humana.
 
@@ -432,7 +432,7 @@ As branches servem para desenvolver. As tags representam estados oficiais, conge
 etapa-00-baseline
 etapa-01-crud-backend
 etapa-02-crud-angular
-etapa-03-crud-h2-testado
+etapa-03-crud-MySQL-testado
 etapa-04-rag-minimo
 etapa-05-agente-reativo
 etapa-06-plan-and-execute
@@ -459,9 +459,9 @@ As horas abaixo sao uma estimativa pedagogica de esforco por etapa. Elas nao rep
 | Etapa | Entrega principal | Sem IA (h) | Com IA (h) | Ganho estimado (h) | Produtividade estimada | SpeedUp estimado |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 00 | Baseline e requisitos | 8 | 6 | 2 | 25,0% | 1,33x |
-| 01 | CRUD backend JDK 21 | 32 | 22 | 10 | 31,3% | 1,45x |
+| 01 | CRUD backend JDK 21 (sem Lombok) | 32 | 22 | 10 | 31,3% | 1,45x |
 | 02 | CRUD frontend Angular 19 | 36 | 25 | 11 | 30,6% | 1,44x |
-| 03 | Persistencia H2 e testes | 24 | 16 | 8 | 33,3% | 1,50x |
+| 03 | Persistencia MySQL e testes | 24 | 16 | 8 | 33,3% | 1,50x |
 | 04 | RAG minimo | 40 | 28 | 12 | 30,0% | 1,43x |
 | 05 | Agente reativo | 32 | 22 | 10 | 31,3% | 1,45x |
 | 06 | Plan and Execute | 36 | 25 | 11 | 30,6% | 1,44x |

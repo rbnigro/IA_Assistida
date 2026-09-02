@@ -30,7 +30,7 @@ stage: baseline
 actor_type: human
 actor_id: project-owner
 summary: O produto central foi definido como um CRUD full-stack IA First.
-action: Foram fixadas as tecnologias JDK 21, Angular 19 e H2.
+action: Foram fixadas as tecnologias JDK 21 (sem Lombok), Angular 19 e MySQL.
 evidence:
   - README.md
   - Projeto/CONSTITUTION.md

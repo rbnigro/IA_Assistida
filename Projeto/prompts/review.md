@@ -10,7 +10,7 @@ Compare `author_agent_id` e `reviewer_agent_id`. Bloqueie quando forem iguais ou
 
 ## Instrucoes
 
-Analise diff, requisitos, contratos, testes, seguranca, manutencao, JDK 21, Angular 19 e H2 conforme aplicavel. Nao edite diretamente o codigo revisado.
+Analise diff, requisitos, contratos, testes, seguranca, manutencao, JDK 21 (sem Lombok), Angular 19 e MySQL conforme aplicavel. Nao edite diretamente o codigo revisado.
 
 ## Saida
 

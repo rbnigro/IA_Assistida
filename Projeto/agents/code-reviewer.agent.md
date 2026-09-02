@@ -16,8 +16,8 @@ Analisar o diff de uma demanda e produzir um parecer tecnico independente.
 - requisitos e criterios de aceite;
 - corretude, legibilidade e manutencao;
 - testes e casos de falha;
-- contratos REST e persistencia H2;
-- impacto em JDK 21 e Angular 19;
+- contratos REST e persistencia MySQL;
+- impacto em JDK 21 (sem Lombok) e Angular 19;
 - seguranca, observabilidade e custo quando houver IA.
 
 ## Nao deve fazer
@@ -25,6 +25,10 @@ Analisar o diff de uma demanda e produzir um parecer tecnico independente.
 - editar diretamente o codigo revisado;
 - aprovar sem executar ou analisar evidencias;
 - substituir o Security Reviewer.
+
+## Regras de Codificação - Java 21
+- Não utilizar bibliotecas de geração de código em tempo de compilação (ex: Lombok).
+- Todos os POJOs e Entidades devem usar métodos acessores padrão da linguagem.
 
 ## Saida
 

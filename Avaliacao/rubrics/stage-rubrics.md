@@ -6,7 +6,7 @@ Avaliar cada uma das dez etapas com criterios objetivos e evidencias reproduzive
 
 ## Escopo
 
-A rubrica cobre o CRUD em JDK 21, Angular 19 e H2, seguido pelas capacidades IA First. Uma etapa so pode ser aprovada quando todos os criterios obrigatorios forem atendidos.
+A rubrica cobre o CRUD em JDK 21 (sem Lombok), Angular 19 e MySQL, seguido pelas capacidades IA First. Uma etapa so pode ser aprovada quando todos os criterios obrigatorios forem atendidos.
 
 ## Criterios
 
@@ -15,9 +15,9 @@ Pontuacao por item: `0` nao demonstrado, `1` parcial, `2` demonstrado com eviden
 | Etapa | Criterios obrigatorios | Evidencia minima | Bloqueadores |
 | --- | --- | --- | --- |
 | 00 Baseline | `00-REQ`, `00-RISK`, `00-DOD`, `00-SCENARIO` | requisito, mapa de riscos, DoD e cenario feliz | escopo indefinido |
-| 01 CRUD backend | `01-API`, `01-LAYERS`, `01-VALIDATION`, `01-ERRORS` | testes de endpoint, contrato e compilacao JDK 21 | API nao compila |
+| 01 CRUD backend | `01-API`, `01-LAYERS`, `01-VALIDATION`, `01-ERRORS` | testes de endpoint, contrato e compilacao JDK 21 (sem Lombok) | API nao compila |
 | 02 CRUD Angular | `02-SCREENS`, `02-FORMS`, `02-STATES`, `02-A11Y` | teste de fluxo e evidencia de acessibilidade | frontend nao consome contrato |
-| 03 H2 testado | `03-SCHEMA`, `03-CRUD`, `03-TX`, `03-PERSISTENCE` | testes de integracao H2 e transacao | perda ou duplicacao de dados |
+| 03 MySQL testado | `03-SCHEMA`, `03-CRUD`, `03-TX`, `03-PERSISTENCE` | testes de integracao MySQL e transacao | perda ou duplicacao de dados |
 | 04 RAG minimo | `04-INGEST`, `04-RETRIEVE`, `04-SOURCES`, `04-ABSTAIN` | dataset com respostas e fontes esperadas | resposta sem evidencia |
 | 05 Agente reativo | `05-TOOL`, `05-STATE`, `05-LIMITS`, `05-FAILURE` | trace, limite de chamadas e teste de timeout | loop ou escrita sem autorizacao |
 | 06 Plan and Execute | `06-PLAN`, `06-EXECUTE`, `06-VERIFY`, `06-COMPARE` | relatorio ReAct versus plano com mesma tarefa | plano sem limite |

@@ -27,7 +27,7 @@ Define princípios, responsabilidades, limites e critérios de auditoria para ga
 2. Definir ou atualizar contrato técnico.  
 3. Projetar a mudança.  
 4. Implementar em JDK 21 e Angular 19 conforme aplicável.  
-5. Executar testes de backend, frontend e persistência H2.  
+5. Executar testes de backend, frontend e persistência MySQL.  
 6. Registrar metadados de auditoria:  
    - `author_agent_id`  
    - `reviewer_agent_id`  

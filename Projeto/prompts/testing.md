@@ -6,7 +6,7 @@ Verificar comportamento, contratos, seguranca e limites da demanda.
 
 ## Instrucoes
 
-Crie testes unitarios, de integracao, contrato e ponta a ponta conforme o escopo. Inclua entradas invalidas, falhas de dependencia, autorizacao, persistencia H2 e fluxo Angular. Para IA, inclua limites de tokens, custo, latencia, citacoes e abstencao.
+Crie testes unitarios, de integracao, contrato e ponta a ponta conforme o escopo. Inclua entradas invalidas, falhas de dependencia, autorizacao, persistencia MySQL e fluxo Angular. Para IA, inclua limites de tokens, custo, latencia, citacoes e abstencao.
 
 ## Saida
 
