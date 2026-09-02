@@ -1,0 +1,11 @@
+C:\UNIPDS\Codigo\academic-crud-backend\src\main\java\com\unipds\clinica\AcademicCrudApplication.java
+C:\UNIPDS\Codigo\academic-crud-backend\src\main\java\com\unipds\clinica\controller\ApiExceptionHandler.java
+C:\UNIPDS\Codigo\academic-crud-backend\src\main\java\com\unipds\clinica\controller\PacienteController.java
+C:\UNIPDS\Codigo\academic-crud-backend\src\main\java\com\unipds\clinica\dto\PacienteRequestDTO.java
+C:\UNIPDS\Codigo\academic-crud-backend\src\main\java\com\unipds\clinica\dto\PacienteResponseDTO.java
+C:\UNIPDS\Codigo\academic-crud-backend\src\main\java\com\unipds\clinica\dto\PacienteUpdateDTO.java
+C:\UNIPDS\Codigo\academic-crud-backend\src\main\java\com\unipds\clinica\model\Paciente.java
+C:\UNIPDS\Codigo\academic-crud-backend\src\main\java\com\unipds\clinica\repository\PacienteRepository.java
+C:\UNIPDS\Codigo\academic-crud-backend\src\main\java\com\unipds\clinica\service\CpfDuplicadoException.java
+C:\UNIPDS\Codigo\academic-crud-backend\src\main\java\com\unipds\clinica\service\PacienteNotFoundException.java
+C:\UNIPDS\Codigo\academic-crud-backend\src\main\java\com\unipds\clinica\service\PacienteService.java
