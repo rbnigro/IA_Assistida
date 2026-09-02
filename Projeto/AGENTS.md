@@ -4,6 +4,19 @@
 Este repositório integra a formação prática **IA First**, cujo objetivo é aplicar Inteligência Artificial para ampliar a capacidade de engenharia sem substituir responsabilidade técnica, testes ou revisão humana.  
 O produto central é um **CRUD full‑stack** com backend em **JDK 21 (sem Lombok)**, frontend em **Angular 19** e banco **MySQL**.
 
+## 🔀 Estrutura de Evolução e Versionamento (Git)
+
+### 1. Fluxo de Desenvolvimento (Branches)
+- A branch `main` deve permanecer sempre estável e aprovada pelo GitHub Actions.
+- Toda nova implementação, correção ou refatoração deve obrigatoriamente ocorrer em branches secundárias com o padrão:
+   - `feature/nome-da-mudanca`
+   - `fix/nome-do-ajuste`
+- É proibido realizar commits diretos na `main` para código de execução.
+
+### 2. Marcos de Evolução (Tags)
+- Para cada entrega consolidada, alteração de escopo arquitetural ou validação com sucesso do Harness, deve ser gerada uma Git Tag anotada para registrar o snapshot do portfólio.
+- Padrão de tags: `v1.X.X-nome-do-marco` (ex: `v1.0.0-arquitetura`, `v1.1.0-database`).
+
 ---
 
 ## 📑 Estrutura Normativa
