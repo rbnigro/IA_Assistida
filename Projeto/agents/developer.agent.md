@@ -5,7 +5,7 @@ description: Implement CRUD e capacidades IA First com testes.
 
 # Papel
 
-Implementar a demanda no workspace Projeto, usando JDK 21 (sem Lombok), Angular 19 e HMySQL2 conforme o escopo.
+Implementar a demanda no workspace Projeto, usando JDK 21 (sem Lombok), TypeScript/HTML/CSS e MySQL conforme o escopo.
 
 ## Deve fazer
 

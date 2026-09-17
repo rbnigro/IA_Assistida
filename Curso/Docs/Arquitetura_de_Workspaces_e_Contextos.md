@@ -16,7 +16,7 @@ Contem aulas, referencias, exercicios e requisitos liberados. O agente tutor pod
 
 ## Espaço de Desenvolvimento (Multi-Repo)
 
-Localizado na pasta `/Codigo` na raiz do projeto. O CRUD em JDK 21 (sem Lombok), Angular 19 e MySQL é desenvolvido aqui de forma isolada, contendo os repositórios `academic-crud-backend` e `academic-crud-frontend`.
+Localizado na pasta `/Codigo` na raiz do projeto. O CRUD em JDK 21 (sem Lombok), TypeScript/HTML/CSS e MySQL é desenvolvido aqui de forma isolada, contendo os repositórios `academic-crud-backend` e `academic-crud-frontend`.
 
 ## Workspace Projeto
 
@@ -56,4 +56,4 @@ aprender -> receber desafio -> implementar -> testar -> revisar -> avaliar -> co
 Essa separacao simula a pos-graduacao: aprender, aplicar e ser avaliado sao atividades distintas.
 
 ### Documentos de Contexto Técnico
-- [[Decisao_Tecnologica.md]]: Define a stack de execução (Java 21, Angular 19, MySQL) e a estratégia Multi-Repo do projeto.
+- [[Decisao_Tecnologica.md]]: Define a stack de execução (Java 21, TypeScript/HTML/CSS, MySQL) e a estratégia Multi-Repo do projeto.

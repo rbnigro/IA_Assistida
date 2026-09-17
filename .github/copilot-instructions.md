@@ -1,6 +1,6 @@
 ## Contexto
 
-Este repositorio e um projeto academico IA First. O produto central e um CRUD full-stack com JDK 21 (sem Lombok), Angular 19 e MySQL.
+Este repositorio e um projeto academico IA First. O produto central e um CRUD full-stack com JDK 21 (sem Lombok), frontend nativo em TypeScript, HTML e CSS, e MySQL.
 
 ## Regras
 

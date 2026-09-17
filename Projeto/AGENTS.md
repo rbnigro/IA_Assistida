@@ -2,7 +2,7 @@
 
 ## 🎯 Contexto do Projeto
 Este repositório integra a formação prática **IA First**, cujo objetivo é aplicar Inteligência Artificial para ampliar a capacidade de engenharia sem substituir responsabilidade técnica, testes ou revisão humana.  
-O produto central é um **CRUD full‑stack** com backend em **JDK 21 (sem Lombok)**, frontend em **Angular 19** e banco **MySQL**.
+O produto central é um **CRUD full‑stack** com backend em **JDK 21 (sem Lombok)**, frontend nativo em **TypeScript, HTML e CSS** e banco **MySQL**.
 
 ## 🔀 Estrutura de Evolução e Versionamento (Git)
 
@@ -49,7 +49,7 @@ O produto central é um **CRUD full‑stack** com backend em **JDK 21 (sem Lom
 - **Exemplo prático:** Alteração de persistência exige ADR atualizado e comunicação ao Developer.
 
 ### Developer
-- **Responsabilidades detalhadas:** Implementar requisitos em JDK 21/Angular 19, manter CRUD funcional.  
+- **Responsabilidades detalhadas:** Implementar requisitos em JDK 21 e TypeScript/HTML/CSS, mantendo o CRUD funcional.
 - **Limites claros:** Não aprovar código próprio; não alterar arquitetura sem ADR; é terminantemente proibido o uso de Lombok no ecossistema Java (Getters, Setters e Construtores devem ser nativos e explícitos).  
 - **Entregáveis esperados:** Código compilável, testes unitários e integração, documentação de alterações.  
 - **Critérios de auditoria:** Cada commit deve referenciar requisito; cada alteração deve ter evidência de teste.  
@@ -96,7 +96,7 @@ O produto central é um **CRUD full‑stack** com backend em **JDK 21 (sem Lom
 1. Identificar requisito e critério de aceite.  
 2. Definir ou atualizar contrato técnico.  
 3. Projetar a mudança.  
-4. Implementar em JDK 21 e Angular 19 conforme aplicável.  
+4. Implementar em JDK 21 e TypeScript/HTML/CSS conforme aplicável.
 5. Executar testes de backend, frontend e persistência MySQL.  
 6. Registrar metadados de auditoria:  
    - `author_agent_id`  

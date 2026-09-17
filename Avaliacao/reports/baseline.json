@@ -1,0 +1,50 @@
+{
+  "harness": "academic-crud-baseline",
+  "generated_at": "2026-09-10T12:05:00.653588+00:00",
+  "root": "C:\\UNIPDS",
+  "decision": "approved_with_remarks",
+  "counts": {
+    "pass": 3,
+    "warn": 3,
+    "fail": 0,
+    "skip": 0
+  },
+  "checks": [
+    {
+      "check_id": "00-DOCS-STACK",
+      "status": "pass",
+      "detail": "Documentação alinhada ao front nativo",
+      "command": null
+    },
+    {
+      "check_id": "00-SECURITY-SECRETS",
+      "status": "pass",
+      "detail": "Nenhum padrão de segredo encontrado",
+      "command": null
+    },
+    {
+      "check_id": "02-FRONTEND-STACK",
+      "status": "warn",
+      "detail": "Arquivos ausentes: .css, .html, .ts",
+      "command": null
+    },
+    {
+      "check_id": "02-FRONTEND-FRAMEWORK",
+      "status": "pass",
+      "detail": "Nenhum artefato Angular encontrado",
+      "command": null
+    },
+    {
+      "check_id": "02-FRONTEND-TEST",
+      "status": "warn",
+      "detail": "package.json ainda não existe; testes do front não podem ser executados",
+      "command": null
+    },
+    {
+      "check_id": "01-BACKEND-TEST",
+      "status": "warn",
+      "detail": "Maven indisponível; teste não executado",
+      "command": "mvn -q test"
+    }
+  ]
+}

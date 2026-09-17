@@ -22,7 +22,7 @@ Conduzir cada etapa do CRUD IA First com escopo controlado, evidencia reproduziv
 
 ## Escopo
 
-O processo cobre requisitos, arquitetura, JDK 21 (sem Lombok), Angular 19, MySQL, testes, seguranca, observabilidade, RAG, agentes, MCP e avaliacao. A implementacao de cada capacidade depende da etapa correspondente.
+O processo cobre requisitos, arquitetura, JDK 21 (sem Lombok), TypeScript/HTML/CSS, MySQL, testes, seguranca, observabilidade, RAG, agentes, MCP e avaliacao. A implementacao de cada capacidade depende da etapa correspondente.
 
 ## Criterios
 
@@ -73,7 +73,7 @@ Antes do primeiro codigo, defina:
 
 ### Baseline tecnico
 
-O primeiro produto e um CRUD full-stack com backend em JDK 21 (sem Lombok), frontend em Angular 19 e banco MySQL. Antes de adicionar RAG, agentes ou MCP, o CRUD deve possuir contratos REST, validacao, tratamento de erros, persistencia e testes.
+O primeiro produto e um CRUD full-stack com backend em JDK 21 (sem Lombok), frontend nativo em TypeScript/HTML/CSS e banco MySQL. Antes de adicionar RAG, agentes ou MCP, o CRUD deve possuir contratos REST, validacao, tratamento de erros, persistencia e testes.
 
 IA First deve ser aplicada desde o inicio para apoiar levantamento, arquitetura, implementacao, testes e documentacao. Toda sugestao gerada por IA precisa ser verificavel e passar pelo fluxo normal de revisao.
 
@@ -270,7 +270,7 @@ main
   |
   +-- etapa-00-baseline
   +-- etapa-01-crud-backend
-  +-- etapa-02-crud-angular
+  +-- etapa-02-crud-frontend-nativo
   +-- etapa-03-crud-MySQL-testado
   +-- etapa-04-rag-minimo
   +-- etapa-05-agente-reativo
@@ -303,7 +303,7 @@ O acompanhamento deve separar o esforco necessario para a mesma entrega sem IA e
 | --- | --- | ---: | ---: |
 | 00 | Baseline e requisitos | 8 | 6 |
 | 01 | CRUD backend JDK 21 (sem Lombok) | 32 | 22 |
-| 02 | CRUD frontend Angular 19 | 36 | 25 |
+| 02 | CRUD frontend TypeScript/HTML/CSS | 36 | 25 |
 | 03 | Persistencia MySQL e testes | 24 | 16 |
 | 04 | RAG minimo | 40 | 28 |
 | 05 | Agente reativo | 32 | 22 |

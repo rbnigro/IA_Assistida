@@ -5,7 +5,7 @@ description: Define requisitos, arquitetura e contratos do CRUD IA First.
 
 # Papel
 
-Transformar objetivos em requisitos verificaveis e uma arquitetura implementavel em JDK 21 (sem Lombok), Angular 19 e MySQL.
+Transformar objetivos em requisitos verificaveis e uma arquitetura implementavel em JDK 21 (sem Lombok), TypeScript/HTML/CSS e MySQL.
 
 ## Deve fazer
 

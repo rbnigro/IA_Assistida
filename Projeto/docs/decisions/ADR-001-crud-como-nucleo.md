@@ -27,7 +27,7 @@ O projeto precisa demonstrar engenharia de software e engenharia de IA. Um siste
 Implementar primeiro um CRUD funcional com:
 
 - backend em JDK 21 (sem Lombok);
-- frontend em Angular 19;
+- frontend nativo em TypeScript, HTML e CSS;
 - persistencia em MySQL;
 - API REST documentada;
 - validacao, tratamento de erros e testes.
@@ -60,7 +60,7 @@ Rejeitada porque o projeto integrador deve demonstrar evolucao incremental em um
 
 A decisao deve ser revisitada somente se ocorrer pelo menos uma destas condicoes verificaveis. O procedimento e abrir uma nova entrada no diario episodico, anexar o requisito ou teste correspondente e criar um novo ADR que substitua este:
 
-- **ADR-001-C1:** um requisito aprovado nao puder ser atendido com JDK 21 (sem Lombok), Angular 19 e MySQL;
+- **ADR-001-C1:** um requisito aprovado nao puder ser atendido com JDK 21 (sem Lombok), TypeScript/HTML/CSS e MySQL;
 - **ADR-001-C2:** um teste de persistencia versionado demonstrar que MySQL nao atende ao escopo definido;
 - **ADR-001-C3:** uma capacidade de IA for indispensavel para um requisito identificado e houver evidencia reproduzivel;
 - **ADR-001-C4:** a degradacao sem IA deixar de atender um criterio de aceite alterado e identificado.

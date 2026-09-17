@@ -1,47 +1,82 @@
-# Implementacao inicial
+# Registro da implementacao
+
+## Estado atual
 
 - `author_agent_id`: `github-copilot`
-- `verification_state`: `verified` para compilacao e testes automatizados; integracao MySQL ainda `planned`
-- `source`: DDL da tabela `pacientes`, `Curso/Docs/Decisao_Tecnologica.md` e perfil `Projeto/agents/developer.agent.md`
-- `scope`: estrutura inicial Spring Boot 3 com Java 21 e entidade JPA `Paciente`
-- `database`: MySQL com configuracao padrao local (`localhost:3306`), banco `Fortec`, servidor informado como ativo
-- `configuration`: usuario padrao `root`; a senha deve ser fornecida obrigatoriamente pela variavel de ambiente `DB_PASSWORD`
-- `jdbc`: a URL local habilita `allowPublicKeyRetrieval=true`, necessario para a autenticacao MySQL local com `caching_sha2_password`; ao sobrescrever `DB_URL`, preserve esse parametro quando aplicavel
-- `limitation`: a conexao real depende de o schema `Fortec` conter a tabela `pacientes` compativel com a entidade
+- `verification_state`: compilacao e testes automatizados verificados; integracao MySQL real ainda pendente
+- `scope`: esqueleto funcional do backend Spring Boot 3 para o CRUD de `Paciente`
+- `frontend`: ainda nao implementado; a pasta `academic-crud-frontend` esta vazia
+- `IA`: o CRUD nao depende de servico de IA
+- `seguranca`: autenticacao, autorizacao e TLS ainda nao fazem parte desta etapa
 
-## Camadas e endpoints
+## O que foi implementado
 
-- `com.unipds.clinica.model.Paciente`: entidade JPA sem geracao de codigo.
-- `com.unipds.clinica.dto`: `PacienteRequestDTO`, `PacienteUpdateDTO` e `PacienteResponseDTO` como records.
-- `com.unipds.clinica.repository.PacienteRepository`: persistencia e consultas por nome/CPF.
-- `com.unipds.clinica.service.PacienteService`: regras de unicidade, atualizacao e exclusao.
-- `com.unipds.clinica.controller.PacienteController`: API em `/api/pacientes`.
-- Endpoints: `GET /health`, `POST /`, `GET /`, `GET /buscar-nome`, `GET /{id}`, `GET /cpf/{cpf}`, `PUT /{id}`, `DELETE /{id}` e `DELETE /cpf/{cpf}`.
+- Entidade JPA `Paciente` mapeada para `pacientes`, sem Lombok e com CPF unico.
+- DTOs `PacienteRequestDTO`, `PacienteUpdateDTO` e `PacienteResponseDTO` como records.
+- Repositorio com listagem, busca parcial por nome, busca por CPF, verificacao de duplicidade e exclusao por CPF.
+- Servico com criacao, atualizacao, consultas, exclusao, transacoes e tratamento de CPF duplicado ou paciente inexistente.
+- Controller em `/api/pacientes` com health check e endpoints CRUD.
+- `ApiExceptionHandler` com respostas `400`, `404` e `409` no formato `{ "erro": "..." }`.
+- Validacao dos campos obrigatorios, formato do CPF, email e limites de tamanho.
+- Catalogo reproduzivel de requests, respostas esperadas, erros e ordem de demonstracao em `API_PAYLOADS.md`.
 
-## Validacao
+## Camadas e arquivos principais
 
-- Comando: `mvn clean test` com JDK `21.0.12`.
-- Resultado: `BUILD SUCCESS`; 2 testes executados, 0 falhas e 0 erros.
-- Revisao independente: realizada pelo agente `Explore`; apontamentos de seguranca e corrida de CPF corrigidos. A aprovacao formal ainda depende do Code Reviewer designado.
-- Seguranca: autenticacao/autorizacao ainda nao fazem parte deste esqueleto; nao publicar a API fora de ambiente controlado antes dessa camada existir, pois os DTOs incluem dados pessoais e clinicos.
+- `src/main/java/com/unipds/clinica/model/Paciente.java`: entidade de dominio.
+- `src/main/java/com/unipds/clinica/dto/`: contratos de entrada e saida.
+- `src/main/java/com/unipds/clinica/repository/PacienteRepository.java`: acesso JPA.
+- `src/main/java/com/unipds/clinica/service/PacienteService.java`: regras de negocio.
+- `src/main/java/com/unipds/clinica/controller/PacienteController.java`: rotas HTTP.
+- `src/main/java/com/unipds/clinica/controller/ApiExceptionHandler.java`: erros HTTP padronizados.
+- `src/test/java/com/unipds/clinica/controller/PacienteControllerTest.java`: health check e 404 por id.
+
+## Endpoints implementados
+
+- `GET /api/pacientes/health`
+- `POST /api/pacientes`
+- `GET /api/pacientes`
+- `GET /api/pacientes/buscar-nome?nome={nome}`
+- `GET /api/pacientes/{id}`
+- `GET /api/pacientes/cpf/{cpf}`
+- `PUT /api/pacientes/{id}`
+- `DELETE /api/pacientes/{id}`
+- `DELETE /api/pacientes/cpf/{cpf}`
+
+Os payloads necessarios para cada fluxo estao em `API_PAYLOADS.md`. Os exemplos usam somente dados sinteticos.
+
+## Configuracao e persistencia
+
+- Banco esperado: MySQL local `localhost:3306`, schema `Fortec` e tabela `pacientes` compativel com a entidade.
+- Usuario padrao configurado: `root`.
+- A senha pode ser informada por `DB_PASSWORD`; nao adicionar credenciais ao repositorio.
+- `DB_URL` e `DB_USERNAME` podem substituir os valores locais padrao.
+- A URL JDBC mantem `allowPublicKeyRetrieval=true` para instalacoes locais que usam `caching_sha2_password`.
+- `spring.jpa.hibernate.ddl-auto=validate` exige que o schema exista e seja compativel; a aplicacao nao cria a tabela automaticamente.
+
+## Validacoes executadas
+
+- `mvn clean test` com JDK `21.0.12`: baseline registrado como sucesso.
+- `mvn clean test` com JDK `25.0.2`: `BUILD SUCCESS`, 2 testes executados, 0 falhas e 0 erros.
+- Revisao independente pelo agente `Explore`: apontamentos de seguranca e corrida de CPF corrigidos.
+- Validacao estrutural de `API_PAYLOADS.md`: endpoints CRUD, `400 Bad Request`, `409 Conflict` e `Content-Type` presentes.
+- Nesta atualizacao, a validacao estrutural da documentacao passou; o `mvn clean test` nao foi repetido com sucesso porque o ambiente atual tem apenas JDK 21 e o `pom.xml` exige `release 25`.
+- A aprovacao formal do Code Reviewer ainda nao foi registrada.
 
 ## Acesso local
 
-O servidor Spring Boot esta configurado para HTTP, sem SSL/TLS. Use:
+O servidor esta configurado para HTTP, sem SSL/TLS:
 
 ```text
 http://localhost:8080/api/pacientes/health
 ```
 
-A URL `https://localhost:8080/...` envia um handshake TLS para uma porta HTTP e causa o erro `Invalid character found in method name`. HTTPS exige configurar certificado e propriedades `server.ssl.*` antes de usar esse protocolo.
+Usar `https://localhost:8080` contra esta configuracao causa falha de handshake. HTTPS exige certificado e propriedades `server.ssl.*`.
 
-## Configuracao local
+## Pendencias e riscos
 
-No PowerShell, defina a senha da instalacao local antes de iniciar a aplicacao:
-
-```powershell
-$env:DB_PASSWORD = Read-Host "Senha do MySQL"
-mvn spring-boot:run
-```
-
-Tambem e possivel substituir `DB_URL` e `DB_USERNAME` quando a instalacao local nao usar os valores padrao. A senha nao deve ser adicionada a este repositorio.
+- Executar a integracao real contra MySQL e confirmar o schema `Fortec.pacientes`.
+- Alinhar a propriedade atual `java.version=25` do `pom.xml` com o requisito de projeto JDK 21, ou registrar formalmente a mudanca.
+- Implementar o frontend nativo TypeScript/HTML/CSS.
+- Adicionar testes de contrato para POST, PUT, validacao, conflito, listagem e exclusao.
+- Solicitar e registrar Code Review independente.
+- Nao publicar a API fora de ambiente controlado enquanto dados pessoais e clinicos estiverem sem autenticacao/autorizacao.

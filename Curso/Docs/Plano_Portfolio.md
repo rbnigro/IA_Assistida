@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Construir e compreender um CRUD full-stack com backend em JDK 21 (sem Lombok), frontend em Angular 19 e banco MySQL. O projeto sera usado para aprender engenharia de software e, progressivamente, RAG, agentes, MCP e orquestracao.
+Construir e compreender um CRUD full-stack com backend em JDK 21 (sem Lombok), frontend nativo em TypeScript, HTML e CSS, e banco MySQL. O projeto sera usado para aprender engenharia de software e, progressivamente, RAG, agentes, MCP e orquestracao.
 
 IA First significa usar IA para apoiar descoberta, arquitetura, implementacao, testes, documentacao e operacao. A IA nao substitui testes, revisao independente ou responsabilidade tecnica.
 
@@ -12,7 +12,7 @@ IA First significa usar IA para apoiar descoberta, arquitetura, implementacao, t
 | --- | --- | --- |
 | 00 | Baseline | dominio, requisitos, riscos e definition of done |
 | 01 | CRUD backend | API REST em JDK 21 (sem Lombok) |
-| 02 | CRUD frontend | telas Angular 19 consumindo a API |
+| 02 | CRUD frontend | telas em HTML/CSS e logica TypeScript consumindo a API |
 | 03 | Persistencia | MySQL, validacao, transacoes e testes |
 | 04 | RAG | busca com fontes e abstencao |
 | 05 | Agente reativo | agente com ferramenta e limites |
@@ -25,7 +25,7 @@ IA First significa usar IA para apoiar descoberta, arquitetura, implementacao, t
 
 - requisitos, arquitetura, contratos e ADRs;
 - JDK 21 (sem Lombok), API REST, DTOs e validacao;
-- Angular 19, componentes, formularios e servicos;
+- TypeScript, modulos de interface, formularios, servicos HTTP e CSS responsivo;
 - MySQL, persistencia, transacoes e testes;
 - embeddings, chunking, metadados e avaliacao de RAG;
 - tool calling, memoria, ReAct e Plan and Execute;

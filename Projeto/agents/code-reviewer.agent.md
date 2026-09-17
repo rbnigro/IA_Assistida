@@ -17,7 +17,7 @@ Analisar o diff de uma demanda e produzir um parecer tecnico independente.
 - corretude, legibilidade e manutencao;
 - testes e casos de falha;
 - contratos REST e persistencia MySQL;
-- impacto em JDK 21 (sem Lombok) e Angular 19;
+- impacto em JDK 21 (sem Lombok) e TypeScript/HTML/CSS;
 - seguranca, observabilidade e custo quando houver IA.
 
 ## Nao deve fazer

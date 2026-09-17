@@ -1,13 +1,13 @@
 # Entregaveis do Projeto Integrador
 
-O projeto integrador sera um CRUD full-stack com JDK 21 (sem Lombok), Angular 19 e MySQL, evoluido progressivamente com capacidades IA First. Cada entrega devera ser executavel, avaliada e documentada.
+O projeto integrador sera um CRUD full-stack com JDK 21 (sem Lombok), frontend nativo em TypeScript/HTML/CSS e MySQL, evoluido progressivamente com capacidades IA First. Cada entrega devera ser executavel, avaliada e documentada.
 
 ## Produto funcional
 
 - API REST com criar, consultar, atualizar e remover;
 - validacao de entrada e erros padronizados;
 - persistencia MySQL e transacoes;
-- interface Angular 19 responsiva e acessivel;
+- interface responsiva e acessivel em HTML/CSS, com comportamento em TypeScript;
 - instrucoes de execucao local;
 - comportamento funcional sem servico de IA.
 

@@ -1,6 +1,6 @@
 # Portfolio Academico de Engenharia de IA First
 
-Este repositorio representa uma formacao pratica e independente em Engenharia de IA aplicada. O produto central e um CRUD full-stack construido com JDK 21 (sem Lombok), Angular 19 e banco MySQL. A abordagem IA First usa inteligencia artificial ao longo do ciclo de engenharia, sem substituir requisitos, testes, revisao humana ou responsabilidade tecnica.
+Este repositorio representa uma formacao pratica e independente em Engenharia de IA aplicada. O produto central e um CRUD full-stack construido com JDK 21 (sem Lombok), frontend nativo em TypeScript/HTML/CSS e banco MySQL. A abordagem IA First usa inteligencia artificial ao longo do ciclo de engenharia, sem substituir requisitos, testes, revisao humana ou responsabilidade tecnica.
 
 O projeto tambem evolui para RAG, agentes autonomos, orquestracao multiagente e MCP quando essas capacidades resolverem um problema real do CRUD.
 
@@ -18,7 +18,7 @@ Construir um CRUD academico reproduzivel e evolui-lo com IA somente quando houve
 
 ## Escopo
 
-O escopo inclui JDK 21 (sem Lombok), Angular 19, MySQL, API REST, testes, governanca, observabilidade, RAG, agentes e MCP em etapas progressivas. Nao inclui dependencia obrigatoria de provedor externo de IA para o CRUD basico.
+O escopo inclui JDK 21 (sem Lombok), TypeScript/HTML/CSS, MySQL, API REST, testes, governanca, observabilidade, RAG, agentes e MCP em etapas progressivas. Nao inclui dependencia obrigatoria de provedor externo de IA para o CRUD basico.
 
 ## Criterios
 
@@ -56,7 +56,7 @@ Os arquivos `.code-workspace` sao configuracoes do VS Code. Eles nao sao reposit
 ### Baseline tecnico obrigatorio
 
 - backend em JDK 21 (sem Lombok);
-- frontend em Angular 19;
+- frontend em TypeScript, HTML e CSS sem framework obrigatorio;
 - persistencia em MySQL;
 - API REST documentada;
 - testes automatizados;
@@ -65,7 +65,7 @@ Os arquivos `.code-workspace` sao configuracoes do VS Code. Eles nao sao reposit
 Ao concluir a formacao, o sistema integrador devera:
 
 - implementar um CRUD completo com validacao, persistencia e tratamento de erros;
-- oferecer uma interface Angular responsiva e acessivel;
+- oferecer uma interface responsiva e acessivel em HTML/CSS, com comportamento TypeScript;
 - manter contratos consistentes entre frontend, backend e banco;
 - usar IA First para apoiar analise, implementacao, testes, documentacao e operacao;
 
@@ -161,7 +161,10 @@ portfolio-ia/
     harness/
     tests/
 
-  Avaliacao/                  # estrutura planejada do ambiente de avaliacao
+  Avaliacao/                  # ambiente independente de avaliacao
+    harness/
+      run_harness.py
+      README.md
     scenarios/
     rubrics/
       stage-rubrics.md
@@ -196,6 +199,8 @@ O agente de codificacao trabalha principalmente aqui. Ele registra o que alterou
 E o ambiente independente de validacao. Contem cenarios, rubricas, avaliadores e relatorios.
 
 O harness verifica o comportamento real do projeto. Ele nao deve depender apenas da afirmacao do agente de que a tarefa foi concluida.
+
+Para executar a verificacao independente do baseline, use `python Avaliacao/harness/run_harness.py`. O comando gera JSON no stdout; acrescente `--report Avaliacao/reports/baseline.json` para persistir o resultado. Use `--strict-frontend` quando a etapa exigir que o front TypeScript/HTML/CSS ja esteja implementado e `--skip-backend` somente quando Maven ou MySQL nao estiverem disponiveis.
 
 ### `Workspaces/`
 
@@ -279,7 +284,7 @@ O modelo solicita uma ferramenta. O servidor MCP decide se a operacao e permitid
 ## Stack da aplicacao
 
 ```text
-Angular 19 -> API REST em JDK 21 (sem Lombok) -> dominio/aplicacao -> repositorios -> MySQL
+TypeScript/HTML/CSS -> API REST em JDK 21 (sem Lombok) -> dominio/aplicacao -> repositorios -> MySQL
                                       |
                                       +-> camada de IA First, quando aplicavel
 ```
@@ -419,7 +424,7 @@ Avaliacao deve ser bloqueada se os identificadores forem iguais ou estiverem aus
 
 - JDK 21 (sem Lombok) e recursos modernos da plataforma Java;
 - API REST, DTOs, validacao e tratamento global de erros;
-- Angular 19, componentes, formularios, servicos e acessibilidade;
+- TypeScript, HTML semantico, formularios, servicos HTTP e acessibilidade;
 - MySQL, schema, transacoes e testes de persistencia;
 - testes unitarios, integracao, contrato e ponta a ponta;
 - uso verificavel de IA para acelerar engenharia sem remover revisao humana.
@@ -431,7 +436,7 @@ As branches servem para desenvolver. As tags representam estados oficiais, conge
 ```text
 etapa-00-baseline
 etapa-01-crud-backend
-etapa-02-crud-angular
+etapa-02-crud-frontend-nativo
 etapa-03-crud-MySQL-testado
 etapa-04-rag-minimo
 etapa-05-agente-reativo
@@ -460,7 +465,7 @@ As horas abaixo sao uma estimativa pedagogica de esforco por etapa. Elas nao rep
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | 00 | Baseline e requisitos | 8 | 6 | 2 | 25,0% | 1,33x |
 | 01 | CRUD backend JDK 21 (sem Lombok) | 32 | 22 | 10 | 31,3% | 1,45x |
-| 02 | CRUD frontend Angular 19 | 36 | 25 | 11 | 30,6% | 1,44x |
+| 02 | CRUD frontend TypeScript/HTML/CSS | 36 | 25 | 11 | 30,6% | 1,44x |
 | 03 | Persistencia MySQL e testes | 24 | 16 | 8 | 33,3% | 1,50x |
 | 04 | RAG minimo | 40 | 28 | 12 | 30,0% | 1,43x |
 | 05 | Agente reativo | 32 | 22 | 10 | 31,3% | 1,45x |
