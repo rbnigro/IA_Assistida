@@ -8,8 +8,10 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(PacienteController.class)
@@ -26,5 +28,14 @@ class PacienteControllerTest {
     void findByIdReturnsNotFound() throws Exception {
         when(service.buscarPorId(99)).thenThrow(new com.unipds.clinica.service.PacienteNotFoundException(99));
         mockMvc.perform(get("/api/pacientes/99")).andExpect(status().isNotFound());
+    }
+
+    @Test
+    void createRejectsInvalidCpf() throws Exception {
+        mockMvc.perform(post("/api/pacientes")
+                        .contentType("application/json")
+                        .content("{\"nome\":\"Paciente Teste\",\"cpf\":\"123\",\"dataNascimento\":\"1990-05-20\"}"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.erro").value(org.hamcrest.Matchers.containsString("cpf")));
     }
 }

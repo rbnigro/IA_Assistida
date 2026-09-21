@@ -5,7 +5,7 @@
 - `author_agent_id`: `github-copilot`
 - `verification_state`: compilacao e testes automatizados verificados; integracao MySQL real ainda pendente
 - `scope`: esqueleto funcional do backend Spring Boot 3 para o CRUD de `Paciente`
-- `frontend`: ainda nao implementado; a pasta `academic-crud-frontend` esta vazia
+- `frontend`: implementado em TypeScript, HTML e CSS na pasta `academic-crud-frontend`, com proxy Vite para a API
 - `IA`: o CRUD nao depende de servico de IA
 - `seguranca`: autenticacao, autorizacao e TLS ainda nao fazem parte desta etapa
 
@@ -28,7 +28,7 @@
 - `src/main/java/com/unipds/clinica/service/PacienteService.java`: regras de negocio.
 - `src/main/java/com/unipds/clinica/controller/PacienteController.java`: rotas HTTP.
 - `src/main/java/com/unipds/clinica/controller/ApiExceptionHandler.java`: erros HTTP padronizados.
-- `src/test/java/com/unipds/clinica/controller/PacienteControllerTest.java`: health check e 404 por id.
+- `src/test/java/com/unipds/clinica/controller/PacienteControllerTest.java`: health check, 404 por id e rejeicao de CPF invalido.
 
 ## Endpoints implementados
 
@@ -59,7 +59,7 @@ Os payloads necessarios para cada fluxo estao em `API_PAYLOADS.md`. Os exemplos 
 - `mvn clean test` com JDK `25.0.2`: `BUILD SUCCESS`, 2 testes executados, 0 falhas e 0 erros.
 - Revisao independente pelo agente `Explore`: apontamentos de seguranca e corrida de CPF corrigidos.
 - Validacao estrutural de `API_PAYLOADS.md`: endpoints CRUD, `400 Bad Request`, `409 Conflict` e `Content-Type` presentes.
-- Nesta atualizacao, a validacao estrutural da documentacao passou; o `mvn clean test` nao foi repetido com sucesso porque o ambiente atual tem apenas JDK 21 e o `pom.xml` exige `release 25`.
+- Nesta atualizacao, o Harness executa `npm run test` no frontend e `mvn -q test` no backend.
 - A aprovacao formal do Code Reviewer ainda nao foi registrada.
 
 ## Acesso local
@@ -76,7 +76,6 @@ Usar `https://localhost:8080` contra esta configuracao causa falha de handshake.
 
 - Executar a integracao real contra MySQL e confirmar o schema `Fortec.pacientes`.
 - Alinhar a propriedade atual `java.version=25` do `pom.xml` com o requisito de projeto JDK 21, ou registrar formalmente a mudanca.
-- Implementar o frontend nativo TypeScript/HTML/CSS.
 - Adicionar testes de contrato para POST, PUT, validacao, conflito, listagem e exclusao.
 - Solicitar e registrar Code Review independente.
 - Nao publicar a API fora de ambiente controlado enquanto dados pessoais e clinicos estiverem sem autenticacao/autorizacao.

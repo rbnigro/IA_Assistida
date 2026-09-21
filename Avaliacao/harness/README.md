@@ -19,7 +19,7 @@ python Avaliacao/harness/run_harness.py --strict-frontend
 - consistencia da documentacao com TypeScript/HTML/CSS;
 - presenca dos tres tipos de arquivo do frontend;
 - ausencia de artefatos do framework anterior;
-- `npm run test`, quando o frontend possuir `package.json`;
+- `npm run test`, quando o frontend possuir `package.json`; neste projeto o script executa o build strict TypeScript/Vite;
 - `mvn -q test` no backend;
 - busca de padroes de segredos versionados;
 - decisao reproduzivel: `approved`, `approved_with_remarks` ou `blocked`;

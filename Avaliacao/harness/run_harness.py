@@ -68,6 +68,15 @@ def check_frontend(checks: list[Check], strict: bool) -> None:
 
     package_json = FRONTEND / "package.json"
     if package_json.exists():
+        try:
+            package = json.loads(package_json.read_text(encoding="utf-8"))
+            scripts = package.get("scripts", {})
+        except (OSError, json.JSONDecodeError) as error:
+            add(checks, "02-FRONTEND-TEST", "fail", f"package.json inválido: {error}")
+            return
+        if "test" not in scripts:
+            add(checks, "02-FRONTEND-TEST", "fail", "package.json não possui o script test")
+            return
         code, output = run_command(["npm", "run", "test"], FRONTEND)
         add(checks, "02-FRONTEND-TEST", "pass" if code == 0 else "fail", output or "npm test concluído", "npm run test")
     else:
