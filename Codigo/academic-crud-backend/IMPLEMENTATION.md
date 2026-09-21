@@ -55,8 +55,7 @@ Os payloads necessarios para cada fluxo estao em `API_PAYLOADS.md`. Os exemplos 
 
 ## Validacoes executadas
 
-- `mvn clean test` com JDK `21.0.12`: baseline registrado como sucesso.
-- `mvn clean test` com JDK `25.0.2`: `BUILD SUCCESS`, 2 testes executados, 0 falhas e 0 erros.
+- `mvn clean test` com JDK `21.0.12`: baseline registrado como sucesso; nesta rodada `mvn -q test` terminou com código 0 e 4 testes executados.
 - Revisao independente pelo agente `Explore`: apontamentos de seguranca e corrida de CPF corrigidos.
 - Validacao estrutural de `API_PAYLOADS.md`: endpoints CRUD, `400 Bad Request`, `409 Conflict` e `Content-Type` presentes.
 - Nesta atualizacao, o Harness executa `npm run test` no frontend e `mvn -q test` no backend.
@@ -75,7 +74,6 @@ Usar `https://localhost:8080` contra esta configuracao causa falha de handshake.
 ## Pendencias e riscos
 
 - Executar a integracao real contra MySQL e confirmar o schema `Fortec.pacientes`.
-- Alinhar a propriedade atual `java.version=25` do `pom.xml` com o requisito de projeto JDK 21, ou registrar formalmente a mudanca.
 - Adicionar testes de contrato para POST, PUT, validacao, conflito, listagem e exclusao.
 - Solicitar e registrar Code Review independente.
 - Nao publicar a API fora de ambiente controlado enquanto dados pessoais e clinicos estiverem sem autenticacao/autorizacao.

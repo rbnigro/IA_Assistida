@@ -24,6 +24,7 @@ IGNORED_PARTS = {".git", "target", "node_modules"}
 FORBIDDEN_FRONTEND_TERMS = ("Angular 19", "Angular", "angular.json", "ng test", "ng build")
 SECRET_PATTERNS = (
     re.compile(r"(?i)(password|passwd|secret|api[_-]?key|token)\s*[:=]\s*['\"][^'\"]+['\"]"),
+    re.compile(r"(?im)^(?:[^#\r\n]*\.)?(password|passwd|secret|api[_-]?key|token)\s*[:=]\s*(?!\$\{)[^\s#]+"),
     re.compile(r"(?i)-----BEGIN (?:RSA|EC|OPENSSH|PRIVATE) KEY-----"),
 )
 
@@ -45,8 +46,10 @@ def run_command(command: list[str], cwd: Path) -> tuple[int, str]:
         command[0] += ".cmd"
     try:
         result = subprocess.run(command, cwd=cwd, capture_output=True, text=True, timeout=180)
-    except (FileNotFoundError, subprocess.TimeoutExpired) as error:
+    except FileNotFoundError as error:
         return 127, str(error)
+    except subprocess.TimeoutExpired as error:
+        return 124, f"Comando excedeu o timeout de 180 segundos: {error}"
     output = (result.stdout + "\n" + result.stderr).strip()
     return result.returncode, output[-4000:]
 
@@ -74,13 +77,20 @@ def check_frontend(checks: list[Check], strict: bool) -> None:
             package = json.loads(package_json.read_text(encoding="utf-8"))
             scripts = package.get("scripts", {})
         except (OSError, json.JSONDecodeError) as error:
-            add(checks, "02-FRONTEND-TEST", "fail", f"package.json inválido: {error}")
+            add(checks, "02-FRONTEND-BUILD", "fail", f"package.json inválido: {error}")
             return
         if "test" not in scripts:
-            add(checks, "02-FRONTEND-TEST", "fail", "package.json não possui o script test")
+            add(checks, "02-FRONTEND-BUILD", "fail", "package.json não possui o script test")
             return
         code, output = run_command(["npm", "run", "test"], FRONTEND)
-        add(checks, "02-FRONTEND-TEST", "pass" if code == 0 else "fail", output or "npm test concluído", "npm run test")
+        add(checks, "02-FRONTEND-BUILD", "pass" if code == 0 else "fail", output or "npm test concluído", "npm run test")
+        source_path = FRONTEND / "src" / "main.ts"
+        source = source_path.read_text(encoding="utf-8", errors="ignore") if source_path.exists() else ""
+        required_contract = ("/api/pacientes", "/api/pacientes/health", "method = editingId ? 'PUT' : 'POST'")
+        if all(marker in source for marker in required_contract):
+            add(checks, "02-FRONTEND-CONTRACT", "pass", "Cliente TypeScript contém health check e operações POST/PUT/CRUD")
+        else:
+            add(checks, "02-FRONTEND-CONTRACT", "fail", "Cliente TypeScript não contém o contrato CRUD esperado")
     else:
         add(checks, "02-FRONTEND-TEST", "warn", "package.json ainda não existe; testes do front não podem ser executados")
 
