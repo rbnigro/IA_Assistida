@@ -179,5 +179,5 @@ As mensagens exatas de validacao dependem da primeira restricao encontrada pelo 
 - A API atualmente nao possui autenticacao ou autorizacao.
 - O transporte local e HTTP, sem TLS.
 - A integracao efetiva com MySQL ainda precisa ser executada no ambiente local com o schema correto.
-- O frontend nativo ainda nao foi implementado neste workspace.
+- O frontend nativo esta disponivel em `Codigo/academic-crud-frontend` e usa este contrato por meio do proxy local do Vite.
 - Nao registrar CPFs, nomes, emails ou outros dados reais em commits, exemplos ou relatorios.

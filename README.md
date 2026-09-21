@@ -103,6 +103,7 @@ A documentacao foi dividida por responsabilidade para evitar um Markdown unico e
 | [Diario Episodico](Projeto/docs/decisions/episodic_log.md) | Eventos datados, evidencias e proximos passos |
 | [Fatos Semanticos](Projeto/docs/decisions/semantic_facts.md) | Fatos curtos, verificaveis e reutilizaveis |
 | [ADR-001](Projeto/docs/decisions/ADR-001-crud-como-nucleo.md) | Decisao de usar o CRUD como nucleo do projeto |
+| [Payloads da API](Codigo/academic-crud-backend/API_PAYLOADS.md) | Requests, respostas esperadas, erros e roteiro do CRUD |
 | [Observabilidade](Projeto/docs/observability/observability-stack.md) | Stack minima, metricas, logs e traces |
 | [Rubrica de etapas](Avaliacao/rubrics/stage-rubrics.md) | Criterios objetivos e bloqueadores por etapa |
 | `Projeto/CONSTITUTION.md` | Principios e limites fundamentais do sistema |
