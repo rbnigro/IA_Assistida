@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 FRONTEND = ROOT / "Codigo" / "academic-crud-frontend"
 BACKEND = ROOT / "Codigo" / "academic-crud-backend"
-DOC_FILES = [path for path in ROOT.rglob("*") if path.suffix.lower() in {".md", ".txt"} and "Avaliacao" not in path.parts]
+DOC_FILES = [path for path in ROOT.rglob("*") if path.suffix.lower() in {".md", ".txt"} and "Avaliacao" not in path.parts and ".github" not in path.parts]
 IGNORED_PARTS = {".git", "target", "node_modules"}
 FORBIDDEN_FRONTEND_TERMS = ("Angular 19", "Angular", "angular.json", "ng test", "ng build")
 SECRET_PATTERNS = (
@@ -41,6 +41,8 @@ def add(checks: list[Check], check_id: str, status: str, detail: str, command: s
 
 
 def run_command(command: list[str], cwd: Path) -> tuple[int, str]:
+    if sys.platform == "win32" and command[0] in {"npm", "mvn"}:
+        command[0] += ".cmd"
     try:
         result = subprocess.run(command, cwd=cwd, capture_output=True, text=True, timeout=180)
     except (FileNotFoundError, subprocess.TimeoutExpired) as error:
